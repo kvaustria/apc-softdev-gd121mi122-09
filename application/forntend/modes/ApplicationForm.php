@@ -1,4 +1,5 @@
 <?php
+
 namespace frontend\models;
 
 use Yii;
@@ -24,6 +25,12 @@ class ApplicationForm extends Model
 	public $height;
 	public $weight;
 	public $religion;
+
+	public $name_of_public_high_school_graduating_from;
+	public $section;
+	public $complete_address_of_school;
+	public $name_of_school_principal;
+	public $telephone_no_of_school;
 	
 	public function rules()
 	{
@@ -37,9 +44,7 @@ class ApplicationForm extends Model
 			['cellphone_no', 'required'],
 			['birth_month', 'required'],
 			['birth_date', 'required'],
-			['birth_date', 'string', 'min' => 2, 'max' => 2],
 			['birth_year', 'required'],
-			['birth_year', 'string', 'min' => 4, 'max' => 4],
 			['status', 'required'],
 			['sex', 'required'],
 			['birth_place', 'required'],
@@ -47,6 +52,12 @@ class ApplicationForm extends Model
 			['height', 'required'],
 			['weight', 'required'],
 			['religion', 'required'],
+
+			['name_of_public_high_school_graduating_from', 'required'],
+			['section', 'required'],
+			['complete_address_of_school', 'required'],
+			['name_of_school_principal', 'required'],
+			['telephone_no_of_school', 'required'],
 		];
 		
 	}
@@ -73,6 +84,13 @@ class ApplicationForm extends Model
 			$user->height = $this->height;
 			$user->weight = $this->weight;
 			$user->religion = $this->religion;
+
+			$user->name_of_public_high_school_graduating_from = $this->name_of_public_high_school_graduating_from;
+			$user->section = $this->section;
+			$user->complete_address_of_school = $this->complete_address_of_school;
+	/*		$user->name_of_school_principal = $this->name_of_school_principal;
+			$user->telephone_no_of_school = $this->telephone_no_of_school; */
+
 			if ($user->save())
 			{
 				return $user;
