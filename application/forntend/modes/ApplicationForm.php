@@ -29,8 +29,14 @@ class ApplicationForm extends Model
 	public $name_of_public_high_school_graduating_from;
 	public $section;
 	public $complete_address_of_school;
-	public $name_of_school_principal;
-	public $telephone_no_of_school;
+	public $name_of_principal;
+	public $telephone_numbers;
+
+	public $organization;
+	public $position_held;
+
+	public $school_you_want_to_enroll_in;
+	public $course_you_plan_to_take;
 	
 	public function rules()
 	{
@@ -56,8 +62,15 @@ class ApplicationForm extends Model
 			['name_of_public_high_school_graduating_from', 'required'],
 			['section', 'required'],
 			['complete_address_of_school', 'required'],
-			['name_of_school_principal', 'required'],
-			['telephone_no_of_school', 'required'],
+			['name_of_principal', 'required'],
+			['telephone_numbers', 'required'],
+
+			['organization', 'required'],
+			['position_held', 'required'],
+			
+			['school_you_want_to_enroll_in', 'required'],
+			['course_you_plan_to_take', 'required'],
+			
 		];
 		
 	}
@@ -88,8 +101,15 @@ class ApplicationForm extends Model
 			$user->name_of_public_high_school_graduating_from = $this->name_of_public_high_school_graduating_from;
 			$user->section = $this->section;
 			$user->complete_address_of_school = $this->complete_address_of_school;
-	/*		$user->name_of_school_principal = $this->name_of_school_principal;
-			$user->telephone_no_of_school = $this->telephone_no_of_school; */
+			$user->name_of_principal = $this->name_of_principal;
+			$user->telephone_numbers = $this->telephone_numbers;
+
+			$user->organization = $this->organization;
+			$user->position_held = $this->position_held;
+
+			$user->school_you_want_to_enroll_in = $this->school_you_want_to_enroll_in;
+			$user->course_you_plan_to_take = $this->course_you_plan_to_take;
+	
 
 			if ($user->save())
 			{
