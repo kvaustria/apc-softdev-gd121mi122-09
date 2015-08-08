@@ -20,8 +20,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'username') ?>
                 <?= $form->field($model, 'email') ?>
                 <?= $form->field($model, 'password')->passwordInput() ?>
+
+                <hr/><h5>Click <font color = "red"> Signup </font> before proceeding to Application Form.</h5><hr>
+
                 <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    <?= Html::button('Proceed to Application Form', array('onclick' => 'js:document.location.href="index.php?r=personal/create"', 'class' => 'btn btn-info')); ?>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>

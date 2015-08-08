@@ -118,4 +118,17 @@ class CollegeController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionCollege()
+    {
+        $model = new College();
+        if ($model->load(Yii::$app->request->post())){
+            if ($user = $model->create()){
+                return $this->goHome();
+            }
+        }
+        return $this->render('create', [
+            'model' => $model,
+            ]);
+    }
 }

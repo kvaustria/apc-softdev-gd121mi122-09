@@ -3,16 +3,18 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Academic;
-use frontend\models\AcademicSearch;
+use frontend\models\Fileserver;
+use frontend\models\FileserverSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use yii\web\UploadedFile;
+
 /**
- * AcademicController implements the CRUD actions for Academic model.
+ * FileserverController implements the CRUD actions for Fileserver model.
  */
-class AcademicController extends Controller
+class FileserverController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +29,12 @@ class AcademicController extends Controller
     }
 
     /**
-     * Lists all Academic models.
+     * Lists all Fileserver models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new AcademicSearch();
+        $searchModel = new FileserverSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +44,7 @@ class AcademicController extends Controller
     }
 
     /**
-     * Displays a single Academic model.
+     * Displays a single Fileserver model.
      * @param integer $id
      * @return mixed
      */
@@ -54,16 +56,36 @@ class AcademicController extends Controller
     }
 
     /**
-     * Creates a new Academic model.
+     * Creates a new Fileserver model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Academic();
+        $model = new Fileserver();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->academic_id]);
+
+                //get the instance of the uploaded file
+                $imageName = $model->f138;
+                $imageName2 = $model->certificate;
+                $imageName3 = $model->taxreturn;
+
+                $model->file = UploadedFile::getInstance($model, 'file');
+                $model->file->saveAs( 'uploads/'.$imageName.'.'.$model->file->extension );
+
+                $model->file2 = UploadedFile::getInstance($model, 'file2');
+                $model->file2->saveAs( 'uploads/'.$imageName2.'.'.$model->file2->extension );
+
+                $model->file3 = UploadedFile::getInstance($model, 'file3');
+                $model->file3->saveAs( 'uploads/'.$imageName3.'.'.$model->file3->extension );
+
+                //save the path in the db column
+                $model->$photo =  'uploads/'.$imageName.'.'.$model->file->extension;
+                $model->$photo =  'uploads/'.$imageName2.'.'.$model->file2->extension;
+                $model->$photo =  'uploads/'.$imageName3.'.'.$model->file3->extension;
+
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +94,7 @@ class AcademicController extends Controller
     }
 
     /**
-     * Updates an existing Academic model.
+     * Updates an existing Fileserver model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,7 +104,7 @@ class AcademicController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->academic_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -91,7 +113,7 @@ class AcademicController extends Controller
     }
 
     /**
-     * Deletes an existing Academic model.
+     * Deletes an existing Fileserver model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,33 +126,18 @@ class AcademicController extends Controller
     }
 
     /**
-     * Finds the Academic model based on its primary key value.
+     * Finds the Fileserver model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Academic the loaded model
+     * @return Fileserver the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Academic::findOne($id)) !== null) {
+        if (($model = Fileserver::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-
-    public function actionAcademic()
-    {
-        $model = new Academic();
-        if ($model->load(Yii::$app->request->post())){
-            if ($user = $model->create()){
-                return $this->goHome();
-            }
-        }
-        return $this->render('create', [
-            'model' => $model,
-            ]);
-    }
-
-   
 }

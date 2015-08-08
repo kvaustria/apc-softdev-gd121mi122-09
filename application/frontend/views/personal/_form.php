@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use dosamigos\datepicker\DatePicker
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Personal */
@@ -23,13 +23,24 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'cellphone_no')->textInput() ?>
 
-    <?= $form->field($model, 'date_of_birth')->textInput() ?>
+    <?= $form->field($model, 'date_of_birth')->widget(
+                DatePicker::className(), [
+                // inline too, not bad
+                 'inline' => false, 
+                 // modify template for custom rendering
+          //      'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
+                'clientOptions' => [
+                    'autoclose' => true,
+                    'format' => 'yyyy-mm-dd'
+                ]
+
+    ]); ?>
 
     <?= $form->field($model, 'age')->textInput() ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ 'Single' => 'Single', 'Married' => 'Married', 'Separated' => 'Separated', 'Widowed' => 'Widowed', ], ['prompt' => 'Select Status']) ?>
+    <?= $form->field($model, 'status')->dropDownList([ 'Single' => 'Single', 'Married' => 'Married', 'Separated' => 'Separated', 'Widowed' => 'Widowed', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'sex')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', '' => '', ], ['prompt' => 'Select Gender']) ?>
+    <?= $form->field($model, 'sex')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'place_of_birth')->textInput(['maxlength' => true]) ?>
 
@@ -41,8 +52,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'religion')->textInput(['maxlength' => true]) ?>
 
+    <hr/><h5>Click <font color = "red"> Submit </font> before proceeding to Academic Background.</h5><hr>
+
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Submit' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::button('Next (Academic Background)', array('onclick' => 'js:document.location.href="index.php?r=academic/create"', 'class' => 'btn btn-info')); ?>
     </div>
 
     <?php ActiveForm::end(); ?>

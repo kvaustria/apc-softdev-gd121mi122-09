@@ -38,11 +38,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sibling1_school')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'sibling1_grade/year')->textInput() ?>
+    <?= $form->field($model, 'sibling1_grade_or_year')->textInput() ?>
 
-    <?= $form->field($model, 'sibling1_employed')->dropDownList([ 'Yes' => 'Yes', 'No' => 'No', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'sibling1_employed')->dropDownList([ 'Yes' => 'Yes', 'No' => 'No', ], ['prompt' => 'Select']) ?>
 
-    <?= $form->field($model, 'sibling1_married')->dropDownList([ 'Yes' => 'Yes', 'No' => 'No', '' => '', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'sibling1_married')->dropDownList([ 'Yes' => 'Yes', 'No' => 'No', ], ['prompt' => 'Select']) ?>
 
     <?= $form->field($model, 'sibling2_name')->textInput(['maxlength' => true]) ?>
 
@@ -50,18 +50,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sibling2_school')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'sibling2_grade/year')->textInput() ?>
+    <?= $form->field($model, 'sibling2_grade_or_year')->textInput() ?>
 
-    <?= $form->field($model, 'sibling2_employed')->dropDownList([ 'Yes' => 'Yes', 'No' => 'No', '' => '', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'sibling2_employed')->dropDownList([ 'Yes' => 'Yes', 'No' => 'No', ], ['prompt' => 'Select']) ?>
 
-    <?= $form->field($model, 'sibling2_married')->dropDownList([ 'Yes' => 'Yes', 'No' => 'No', '' => '', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'sibling2_married')->dropDownList([ 'Yes' => 'Yes', 'No' => 'No', ], ['prompt' => 'Select']) ?>
 
     <?= $form->field($model, 'income_per_year')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'income_per_year_in_words')->textInput(['maxlength' => true]) ?>
 
+    <hr/><h5>Click <font color = "red"> Submit </font> before proceeding to the next step.</h5><hr>
+
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Submit' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::button('Next (Other Requirements)', array('onclick' => 'js:document.location.href="index.php?r=fileserver/create"', 'class' => 'btn btn-info')); ?>
     </div>
 
     <?php ActiveForm::end(); ?>

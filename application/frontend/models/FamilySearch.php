@@ -18,7 +18,7 @@ class FamilySearch extends Family
     public function rules()
     {
         return [
-            [['fam_background_id', 'father_phonenum', 'mother_phonenum', 'sibling1_age', 'sibling1_grade/year', 'sibling2_age', 'sibling2_grade/year'], 'integer'],
+            [['fam_background_id', 'father_phonenum', 'mother_phonenum', 'sibling1_age', 'sibling1_grade_or_year', 'sibling2_age', 'sibling2_grade_or_year'], 'integer'],
             [['name_of_father', 'father_occupation', 'father_company_address', 'father_birthdate', 'name_of_mother', 'mother_occupation', 'mother_company_address', 'mother_birthdate', 'sibling1_name', 'sibling1_school', 'sibling1_employed', 'sibling1_married', 'sibling2_name', 'sibling2_school', 'sibling2_employed', 'sibling2_married', 'income_per_year_in_words'], 'safe'],
             [['income_per_year'], 'number'],
         ];
@@ -63,9 +63,9 @@ class FamilySearch extends Family
             'mother_phonenum' => $this->mother_phonenum,
             'mother_birthdate' => $this->mother_birthdate,
             'sibling1_age' => $this->sibling1_age,
-            'sibling1_grade/year' => $this->sibling1_grade/year,
+            'sibling1_grade_or_year' => $this->sibling1_grade_or_year,
             'sibling2_age' => $this->sibling2_age,
-            'sibling2_grade/year' => $this->sibling2_grade/year,
+            'sibling2_grade_or_year' => $this->sibling2_grade_or_year,
             'income_per_year' => $this->income_per_year,
         ]);
 

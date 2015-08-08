@@ -15,7 +15,7 @@ use Yii;
  * @property string $position_held
  * @property integer $academic_id
  *
- * @property Applicants $academic
+ * @property Applicants[] $applicants
  */
 class Academic extends \yii\db\ActiveRecord
 {
@@ -60,8 +60,8 @@ class Academic extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAcademic()
+    public function getApplicants()
     {
-        return $this->hasOne(Applicants::className(), ['applicant_id' => 'academic_id']);
+        return $this->hasMany(Applicants::className(), ['applicant_academic_id' => 'academic_id']);
     }
 }

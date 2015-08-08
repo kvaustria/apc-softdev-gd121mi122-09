@@ -21,19 +21,19 @@ use Yii;
  * @property string $sibling1_name
  * @property integer $sibling1_age
  * @property string $sibling1_school
- * @property integer $sibling1_grade/year
+ * @property integer $sibling1_grade_or_year
  * @property string $sibling1_employed
  * @property string $sibling1_married
  * @property string $sibling2_name
  * @property integer $sibling2_age
  * @property string $sibling2_school
- * @property integer $sibling2_grade/year
+ * @property integer $sibling2_grade_or_year
  * @property string $sibling2_employed
  * @property string $sibling2_married
  * @property string $income_per_year
  * @property string $income_per_year_in_words
  *
- * @property Applicants $famBackground
+ * @property Applicants[] $applicants
  */
 class Family extends \yii\db\ActiveRecord
 {
@@ -51,9 +51,9 @@ class Family extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name_of_father', 'father_occupation', 'father_company_address', 'father_phonenum', 'father_birthdate', 'name_of_mother', 'mother_occupation', 'mother_company_address', 'mother_phonenum', 'mother_birthdate', 'sibling1_name', 'sibling1_age', 'sibling1_school', 'sibling1_grade/year', 'sibling1_employed', 'sibling1_married', 'sibling2_name', 'sibling2_age', 'sibling2_school', 'sibling2_grade/year', 'sibling2_employed', 'sibling2_married', 'income_per_year', 'income_per_year_in_words'], 'required'],
+            [['name_of_father', 'father_occupation', 'father_company_address', 'father_phonenum', 'father_birthdate', 'name_of_mother', 'mother_occupation', 'mother_company_address', 'mother_phonenum', 'mother_birthdate', 'sibling1_name', 'sibling1_age', 'sibling1_school', 'sibling1_grade_or_year', 'sibling1_employed', 'sibling1_married', 'sibling2_name', 'sibling2_age', 'sibling2_school', 'sibling2_grade_or_year', 'sibling2_employed', 'sibling2_married', 'income_per_year', 'income_per_year_in_words'], 'required'],
             [['father_company_address', 'mother_company_address', 'sibling1_employed', 'sibling1_married', 'sibling2_employed', 'sibling2_married'], 'string'],
-            [['father_phonenum', 'mother_phonenum', 'sibling1_age', 'sibling1_grade/year', 'sibling2_age', 'sibling2_grade/year'], 'integer'],
+            [['father_phonenum', 'mother_phonenum', 'sibling1_age', 'sibling1_grade_or_year', 'sibling2_age', 'sibling2_grade_or_year'], 'integer'],
             [['father_birthdate', 'mother_birthdate'], 'safe'],
             [['income_per_year'], 'number'],
             [['name_of_father', 'father_occupation', 'name_of_mother', 'mother_occupation', 'sibling1_name'], 'string', 'max' => 45],
@@ -82,13 +82,13 @@ class Family extends \yii\db\ActiveRecord
             'sibling1_name' => 'Sibling1 Name',
             'sibling1_age' => 'Sibling1 Age',
             'sibling1_school' => 'Sibling1 School',
-            'sibling1_grade/year' => 'Sibling1 Grade/year',
+            'sibling1_grade_or_year' => 'Sibling1 Grade Or Year',
             'sibling1_employed' => 'Sibling1 Employed',
             'sibling1_married' => 'Sibling1 Married',
             'sibling2_name' => 'Sibling2 Name',
             'sibling2_age' => 'Sibling2 Age',
             'sibling2_school' => 'Sibling2 School',
-            'sibling2_grade/year' => 'Sibling2 Grade/year',
+            'sibling2_grade_or_year' => 'Sibling2 Grade Or Year',
             'sibling2_employed' => 'Sibling2 Employed',
             'sibling2_married' => 'Sibling2 Married',
             'income_per_year' => 'Income Per Year',
@@ -99,8 +99,8 @@ class Family extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getFamBackground()
+    public function getApplicants()
     {
-        return $this->hasOne(Applicants::className(), ['applicant_id' => 'fam_background_id']);
+        return $this->hasMany(Applicants::className(), ['applicant_family_id' => 'fam_background_id']);
     }
 }

@@ -15,8 +15,6 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'personal_id') ?>
-
     <?= $form->field($model, 'last_name') ?>
 
     <?= $form->field($model, 'first_name') ?>
@@ -44,6 +42,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'weight') ?>
 
     <?= $form->field($model, 'religion') ?>
+
+    <?= $form->field($model, 'personal_id') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

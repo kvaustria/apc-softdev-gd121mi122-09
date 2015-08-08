@@ -18,8 +18,8 @@ class PersonalSearch extends Personal
     public function rules()
     {
         return [
-            [['personal_id', 'cellphone_no', 'age'], 'integer'],
-            [['first_name', 'last_name', 'middle_name', 'city_address', 'date_of_birth', 'status', 'sex', 'place_of_birth', 'nationality', 'religion'], 'safe'],
+            [['last_name', 'first_name', 'middle_name', 'city_address', 'date_of_birth', 'status', 'sex', 'place_of_birth', 'nationality', 'religion'], 'safe'],
+            [['cellphone_no', 'age', 'personal_id'], 'integer'],
             [['height', 'weight'], 'number'],
         ];
     }
@@ -57,16 +57,16 @@ class PersonalSearch extends Personal
         }
 
         $query->andFilterWhere([
-            'personal_id' => $this->personal_id,
             'cellphone_no' => $this->cellphone_no,
             'date_of_birth' => $this->date_of_birth,
             'age' => $this->age,
             'height' => $this->height,
             'weight' => $this->weight,
+            'personal_id' => $this->personal_id,
         ]);
 
-        $query->andFilterWhere(['like', 'first_name', $this->first_name])
-            ->andFilterWhere(['like', 'last_name', $this->last_name])
+        $query->andFilterWhere(['like', 'last_name', $this->last_name])
+            ->andFilterWhere(['like', 'first_name', $this->first_name])
             ->andFilterWhere(['like', 'middle_name', $this->middle_name])
             ->andFilterWhere(['like', 'city_address', $this->city_address])
             ->andFilterWhere(['like', 'status', $this->status])

@@ -43,7 +43,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'sibling1_school') ?>
 
-    <?php // echo $form->field($model, 'sibling1_grade/year') ?>
+    <?php // echo $form->field($model, 'sibling1_grade_or_year') ?>
 
     <?php // echo $form->field($model, 'sibling1_employed') ?>
 
@@ -55,7 +55,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'sibling2_school') ?>
 
-    <?php // echo $form->field($model, 'sibling2_grade/year') ?>
+    <?php // echo $form->field($model, 'sibling2_grade_or_year') ?>
 
     <?php // echo $form->field($model, 'sibling2_employed') ?>
 
