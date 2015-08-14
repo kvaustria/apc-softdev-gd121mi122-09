@@ -23,7 +23,7 @@ body {
 
 .jumbotron {
     text-align: center;
-    background-color: #ff0000;
+    background-color: #D80000 ;
 }
 
 .jumbotron .btn {
@@ -79,7 +79,7 @@ a.desc:after {
 .hint-block {
     display: block;
     margin-top: 5px;
-    color: #6666ff;
+    color: #D80000 ;
 }
 
 .error-summary {
