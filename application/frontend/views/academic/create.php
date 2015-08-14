@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model frontend\models\Academic */
 
 $this->title = 'Create Academic';
-$this->params['breadcrumbs'][] = ['label' => 'Academic Background', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Academics', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="academic-create">

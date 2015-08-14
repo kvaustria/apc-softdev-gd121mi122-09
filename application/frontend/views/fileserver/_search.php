@@ -15,11 +15,19 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?= $form->field($model, 'fileserver_id') ?>
 
     <?= $form->field($model, 'f138') ?>
 
     <?= $form->field($model, 'photo') ?>
+
+    <?= $form->field($model, 'certificate') ?> 
+ 
+    <?= $form->field($model, 'photo1') ?> 
+ 
+   <?= $form->field($model, 'taxreturn') ?> 
+ 
+   <?= $form->field($model, 'photo2') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

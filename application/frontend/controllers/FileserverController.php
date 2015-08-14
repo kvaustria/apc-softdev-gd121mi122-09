@@ -68,8 +68,8 @@ class FileserverController extends Controller
 
                 //get the instance of the uploaded file
                 $imageName = $model->f138;
-                $imageName2 = $model->certificate;
-                $imageName3 = $model->taxreturn;
+               $imageName2 = $model->certificate;
+               $imageName3 = $model->taxreturn;
 
                 $model->file = UploadedFile::getInstance($model, 'file');
                 $model->file->saveAs( 'uploads/'.$imageName.'.'.$model->file->extension );
@@ -81,11 +81,11 @@ class FileserverController extends Controller
                 $model->file3->saveAs( 'uploads/'.$imageName3.'.'.$model->file3->extension );
 
                 //save the path in the db column
-                $model->$photo =  'uploads/'.$imageName.'.'.$model->file->extension;
-                $model->$photo =  'uploads/'.$imageName2.'.'.$model->file2->extension;
-                $model->$photo =  'uploads/'.$imageName3.'.'.$model->file3->extension;
+       //         $model->$photo =  'uploads/'.$imageName.'.'.$model->file->extension;
+         //       $model->$photo1 =  'uploads/'.$imageName2.'.'.$model->file2->extension;
+         //       $model->$photo2 =  'uploads/'.$imageName3.'.'.$model->file3->extension;
 
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->fileserver_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,

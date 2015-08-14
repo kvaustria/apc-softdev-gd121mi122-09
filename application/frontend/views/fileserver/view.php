@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Fileserver */
 
-$this->title = $model->id;
+$this->title = $model->fileserver_id;
 $this->params['breadcrumbs'][] = ['label' => 'Fileservers', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,22 +15,27 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Update', ['update', 'id' => $model->fileserver_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->fileserver_id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::button('Done', array('onclick' => 'js:document.location.href="index.php?r=site/about"', 'class' => 'btn btn-info')); ?>
     </p>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            'fileserver_id',
             'f138',
             'photo',
+            'certificate', 
+            'photo1', 
+            'taxreturn', 
+            'photo2', 
         ],
     ]) ?>
 

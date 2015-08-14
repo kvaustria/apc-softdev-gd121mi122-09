@@ -20,6 +20,7 @@ class AcademicSearch extends Academic
         return [
             [['Public_high_school_graduating_from', 'complete_school_address', 'principal_fullname', 'organization', 'position_held'], 'safe'],
             [['section_no', 'academic_id'], 'integer'],
+            [['second_grading_grade', 'third_grading_grade','high_school_gpa'], 'number'],
         ];
     }
 
@@ -57,6 +58,9 @@ class AcademicSearch extends Academic
 
         $query->andFilterWhere([
             'section_no' => $this->section_no,
+            'second_grading_grade' => $this->second_grading_grade, 
+            'third_grading_grade' => $this->third_grading_grade,
+            'high_school_gpa' => $this->high_school_gpa,
             'academic_id' => $this->academic_id,
         ]);
 

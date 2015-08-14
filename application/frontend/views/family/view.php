@@ -23,6 +23,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::button('Next (Other Requirements)', array('onclick' => 'js:document.location.href="index.php?r=fileserver/create"', 'class' => 'btn btn-info')); ?>
+        
     </p>
 
     <?= DetailView::widget([

@@ -11,8 +11,11 @@ use Yii;
  * @property string $course_plan_to_take1
  * @property string $course_plan_to_take2
  * @property integer $college_plan_id
+ * @property integer $college_school_id
  *
  * @property Applicants $collegePlan
+ * @property Applicants[] $applicants
+ * @property Schools $schools
  */
 class College extends \yii\db\ActiveRecord
 {
@@ -30,8 +33,8 @@ class College extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['school_plan_to_enroll_in', 'course_plan_to_take1', 'course_plan_to_take2'], 'required'],
-            [['school_plan_to_enroll_in', 'course_plan_to_take1', 'course_plan_to_take2'], 'string']
+            [['first_school_plan_to_enroll_in', 'second_school_plan_to_enroll_in', 'course_plan_to_take1', 'course_plan_to_take2'], 'required'],
+            [['first_school_plan_to_enroll_in', 'second_school_plan_to_enroll_in', 'course_plan_to_take1', 'course_plan_to_take2'], 'string']
         ];
     }
 
@@ -41,10 +44,12 @@ class College extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'school_plan_to_enroll_in' => 'School Plan To Enroll In',
+            'first_school_plan_to_enroll_in' => 'First School Plan To Enroll In',
+          'second_school_plan_to_enroll_in' => 'Second School Plan To Enroll In',
             'course_plan_to_take1' => 'Course Plan To Take1',
             'course_plan_to_take2' => 'Course Plan To Take2',
             'college_plan_id' => 'College Plan ID',
+            'college_school_id' => 'College School ID',
         ];
     }
 

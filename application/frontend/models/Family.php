@@ -51,7 +51,7 @@ class Family extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name_of_father', 'father_occupation', 'father_company_address', 'father_phonenum', 'father_birthdate', 'name_of_mother', 'mother_occupation', 'mother_company_address', 'mother_phonenum', 'mother_birthdate', 'sibling1_name', 'sibling1_age', 'sibling1_school', 'sibling1_grade_or_year', 'sibling1_employed', 'sibling1_married', 'sibling2_name', 'sibling2_age', 'sibling2_school', 'sibling2_grade_or_year', 'sibling2_employed', 'sibling2_married', 'income_per_year', 'income_per_year_in_words'], 'required'],
+            [['name_of_father', 'father_occupation', 'father_company_address', 'father_phonenum', 'father_birthdate', 'name_of_mother', 'mother_occupation', 'mother_company_address', 'mother_phonenum', 'mother_birthdate', 'income_per_year', 'income_per_year_in_words'], 'required'],
             [['father_company_address', 'mother_company_address', 'sibling1_employed', 'sibling1_married', 'sibling2_employed', 'sibling2_married'], 'string'],
             [['father_phonenum', 'mother_phonenum', 'sibling1_age', 'sibling1_grade_or_year', 'sibling2_age', 'sibling2_grade_or_year'], 'integer'],
             [['father_birthdate', 'mother_birthdate'], 'safe'],

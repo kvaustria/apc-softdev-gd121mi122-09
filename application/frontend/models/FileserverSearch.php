@@ -18,8 +18,8 @@ class FileserverSearch extends Fileserver
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['f138', 'photo'], 'safe'],
+            [['fileserver_id'], 'integer'],
+            [['f138', 'photo', 'certificate', 'photo1', 'taxreturn', 'photo2'], 'safe'],
         ];
     }
 
@@ -56,11 +56,15 @@ class FileserverSearch extends Fileserver
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
+            'fileserver_id' => $this->fileserver_id,
         ]);
 
         $query->andFilterWhere(['like', 'f138', $this->f138])
-            ->andFilterWhere(['like', 'photo', $this->photo]);
+            ->andFilterWhere(['like', 'photo', $this->photo])
+          ->andFilterWhere(['like', 'certificate', $this->certificate])
+          ->andFilterWhere(['like', 'photo1', $this->photo1])
+          ->andFilterWhere(['like', 'taxreturn', $this->taxreturn])
+          ->andFilterWhere(['like', 'photo2', $this->photo2]);
 
         return $dataProvider;
     }

@@ -18,7 +18,7 @@ class CollegeSearch extends College
     public function rules()
     {
         return [
-            [['school_plan_to_enroll_in', 'course_plan_to_take1', 'course_plan_to_take2'], 'safe'],
+            [['first_school_plan_to_enroll_in','second_school_plan_to_enroll_in', 'course_plan_to_take1', 'course_plan_to_take2'], 'safe'],
             [['college_plan_id'], 'integer'],
         ];
     }
@@ -59,7 +59,8 @@ class CollegeSearch extends College
             'college_plan_id' => $this->college_plan_id,
         ]);
 
-        $query->andFilterWhere(['like', 'school_plan_to_enroll_in', $this->school_plan_to_enroll_in])
+        $query->andFilterWhere(['like', 'first_school_plan_to_enroll_in', $this->first_school_plan_to_enroll_in])
+            ->andFilterWhere(['like', 'second_school_plan_to_enroll_in', $this->second_school_plan_to_enroll_in])
             ->andFilterWhere(['like', 'course_plan_to_take1', $this->course_plan_to_take1])
             ->andFilterWhere(['like', 'course_plan_to_take2', $this->course_plan_to_take2]);
 

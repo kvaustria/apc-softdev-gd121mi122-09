@@ -10,9 +10,10 @@ $this->title = 'My Yii Application';
         <h1>SM Foundation Online Application Form</h1><hr>  
 
         <p class="lead">Please read the guidelines below to know the requirements and qualifications
-            when applying for scholarship.</p> 
+            when applying for scholarship.</p>
+        <p class="lead">Make sure to <font color = "red">Signup</font> first before clicking the button below.</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://localhost/module1/frontend/web/index.php?r=site%2Fsignup">Apply for Scholarship</a></p>
+        <p><a class="btn btn-lg btn-success" href="http://localhost/module1/frontend/web/index.php?r=personal%2Fcreate">Apply for Scholarship</a></p>
     </div>
 
     <div class="body-content">
@@ -20,10 +21,16 @@ $this->title = 'My Yii Application';
         <div class="row">
             <div class="col-lg-4">
 
+               
+
                 <h2>SM College Scholarship Program Guidelines</h2>
                 <p> <font size ="3">School Year 2016-2017</font></p>
 
                 <hr/>
+
+  <!--              <table style="width:100%">
+                <tr>
+                    <td> -->
 
                 <h4>Partner schools outside NCR</h4>
                     <h4><b>Luzon</b></h4>
@@ -146,9 +153,12 @@ $this->title = 'My Yii Application';
                                 <li>Liceo de Cagayan</li>
                                 <li>Xavier University</li>
                             </ol>
-                    <hr/>
-
-                     <h4>Guidelines</h4>
+                    
+<!--
+                </td>
+            
+                <td> -->
+                 <h4>Guidelines</h4>
                      <p> <font size ="2">School Year 2016-2017</font></p>
                         <ol>
                             <li>Qualifications for SM College Scholarship Program:</li>
@@ -229,12 +239,17 @@ $this->title = 'My Yii Application';
 
                         <hr/>
 
+
                         <ul>
                             <li>Qualified applicants will be notified (through telephone call/sms message) as to their
                                 schedule of interview and IQ test from January-March 2016</li>
                             <li>ONLY FULLY ACCOMPLISHED APPLICATION FORMS ACCOMPANIED BY ALL THE REQUIRED DOCUMENTS WILL
                                 BE PROCESSED.</li>
                         </ul>
+<!--
+                    </td>
+                </tr>
+            </table> -->
 
 
 

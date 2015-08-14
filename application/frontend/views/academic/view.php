@@ -23,6 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::button('Next (College Plan)', array('onclick' => 'js:document.location.href="index.php?r=college/create"', 'class' => 'btn btn-info')); ?>
     </p>
 
     <?= DetailView::widget([
@@ -32,6 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'complete_school_address',
             'principal_fullname',
             'section_no',
+            'second_grading_grade', 
+            'third_grading_grade',
+            'high_school_gpa',
             'organization:ntext',
             'position_held:ntext',
             'academic_id',

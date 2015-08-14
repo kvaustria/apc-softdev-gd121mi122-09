@@ -23,6 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::button('Next (Academic Background)', array('onclick' => 'js:document.location.href="index.php?r=academic/create"', 'class' => 'btn btn-info')); ?>
     </p>
 
     <?= DetailView::widget([

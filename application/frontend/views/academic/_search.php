@@ -23,6 +23,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'section_no') ?>
 
+    <?= $form->field($model, 'second_grading_grade') ?>
+   
+    <?= $form->field($model, 'third_grading_grade') ?>
+
+    <?= $form->field($model, 'high_school_gpa') ?>
+
     <?= $form->field($model, 'organization') ?>
 
     <?= $form->field($model, 'position_held') ?>

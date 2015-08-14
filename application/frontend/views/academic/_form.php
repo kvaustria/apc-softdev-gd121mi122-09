@@ -20,16 +20,25 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'section_no')->textInput() ?>
 
+    <?= $form->field($model, 'second_grading_grade')->textInput() ?> 
+ 
+    <?= $form->field($model, 'third_grading_grade')->textInput() ?>
+
+    <?= $form->field($model, 'high_school_gpa')->textInput() ?>
+
     <?= $form->field($model, 'organization')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'position_held')->textarea(['rows' => 6]) ?>
 
-    <hr/><h5>Click <font color = "red"> Submit </font> before proceeding to College Plan.</h5><hr>
+    <hr/>
+
+    <h5>Click <font color = "red"> Submit </font> before proceeding to College Plan.</h5><hr>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Submit' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-        <?= Html::button('Next (College Plan)', array('onclick' => 'js:document.location.href="index.php?r=college/create"', 'class' => 'btn btn-info')); ?>
+        
     </div>
+
 
     <?php ActiveForm::end(); ?>
 

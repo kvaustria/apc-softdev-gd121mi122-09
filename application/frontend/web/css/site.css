@@ -96,3 +96,11 @@ hr {
     background: #000;
     
 }
+
+table, th, td {
+    border: 1px solid black;
+    padding: 15px;
+}
+table {
+    border-spacing: 15px;
+}

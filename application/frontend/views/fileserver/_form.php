@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -16,13 +16,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'file')->fileInput();	?>
 
-    <hr/>
+    <hr/><br/>
 
     <?= $form->field($model, 'certificate')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'file2')->fileInput();	?>
 
-    <hr/>
+    <br/><hr/>
 
     <?= $form->field($model, 'taxreturn')->textInput(['maxlength' => true]) ?>
 

@@ -15,7 +15,9 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'school_plan_to_enroll_in') ?>
+    <?= $form->field($model, 'first_school_plan_to_enroll_in') ?>
+
+    <?= $form->field($model, 'second_school_plan_to_enroll_in') ?>
 
     <?= $form->field($model, 'course_plan_to_take1') ?>
 

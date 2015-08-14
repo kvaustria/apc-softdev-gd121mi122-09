@@ -56,7 +56,7 @@ use dosamigos\datepicker\DatePicker
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Submit' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-        <?= Html::button('Next (Academic Background)', array('onclick' => 'js:document.location.href="index.php?r=academic/create"', 'class' => 'btn btn-info')); ?>
+        
     </div>
 
     <?php ActiveForm::end(); ?>
