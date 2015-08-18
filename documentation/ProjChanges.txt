@@ -1,0 +1,46 @@
+FRONTEND
+
+ *City Address - but what if the applicant is from the province
+*Filter according to the city or are
+*Sir Toti’s suggestion is a drop down for the City Address
+*Classification of applicants address ex. applicant is from NAGA but lives in NCR
+*height CM weight KG
+
+*Indicate Public/MAPSA
+*very low number of MAPSA for the past 3 years
+*Public schools and Other Schools
+*Table for Organisation and Position Held for clarity
+
+*Tabular not Vertical
+*If more than one sibling, just add another.
+*limit the alphanumeric characters
+*not open ended (ex if field required has 3 digits)
+*strict field validation
+**HOUSEHOLD income per year
+*ONLY INCOME PER YEAR (delete income per year in words)
+*dont enter name and school name in fileserver
+*link the record using transaction number rather than the filename
+*regarding the upload, filter by filetype ex jpeg png
+*maximum size for uploaded file
+*sm foundation to encode and the system can assign a generic id and password
+
+*upload file maximum 200kb (jpeg and png)
+*refer to Canadian embassy file uploader
+
+
+BACKEND
+*admin should only be able to login from internal not external
+*filter applicants, master list for applicants who passed and filter list for applicants who failed
+*cache. error because record used is a foreign key
+*college table name is misleading, should be colleges to apply
+*search option to find applicants
+*remove create update delete in each record, SM is not in the position to do so
+*dont include college courses to other colleges that doesn’t have that course or program
+*admin can override the school field if sm decides to choose a school for the applicant
+*admin doesn’t want to override the application form of the applicant
+*for every step after qualifying exam, sm will encode the test results. flag of applicants will be passed or failed.
+* students who passed will go to the interview. flag to inform applicants who passed and what next step they will do. sm should have a report for students who qualified the exam. qualified student reports
+*system should compute based on the interview and exam
+*field wherein you can put the area or drop down nearest to your area, nearest SM mall
+*applicants are based on where they graduate HS
+Dropdown for area
