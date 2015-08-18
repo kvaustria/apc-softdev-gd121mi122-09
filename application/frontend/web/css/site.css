@@ -89,3 +89,18 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #000;
+    
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 15px;
+}
+table {
+    border-spacing: 15px;
+}

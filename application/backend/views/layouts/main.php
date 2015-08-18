@@ -25,7 +25,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => 'SM FOUNDATION',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -33,6 +33,13 @@ AppAsset::register($this);
             ]);
             $menuItems = [
                 ['label' => 'Home', 'url' => ['/site/index']],
+                ['label' => 'Applicants', 'url' => ['/applicants/index']],
+                ['label' => 'Personal', 'url' => ['/personal/index']],
+                ['label' => 'Academic', 'url' => ['/academic/index']],
+                ['label' => 'Family', 'url' => ['/family/index']],
+                ['label' => 'College', 'url' => ['/college/index']],
+                
+
             ];
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
@@ -42,6 +49,7 @@ AppAsset::register($this);
                     'url' => ['/site/logout'],
                     'linkOptions' => ['data-method' => 'post']
                 ];
+
             }
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
@@ -60,7 +68,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; SM FOUNDATION <?= date('Y') ?></p>
         <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>
