@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'sibling2_employed',
             'sibling2_married',
             'income_per_year',
-            'income_per_year_in_words',
+            
         ],
     ]) ?>
 

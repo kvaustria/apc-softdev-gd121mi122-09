@@ -63,7 +63,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'income_per_year') ?>
 
-    <?php // echo $form->field($model, 'income_per_year_in_words') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
