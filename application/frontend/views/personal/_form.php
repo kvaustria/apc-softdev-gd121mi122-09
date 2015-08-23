@@ -19,7 +19,7 @@ use dosamigos\datepicker\DatePicker
 
     <?= $form->field($model, 'middle_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'city_address')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'home_address')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'cellphone_no')->textInput() ?>
 

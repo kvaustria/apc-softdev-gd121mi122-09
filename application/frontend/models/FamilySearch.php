@@ -19,7 +19,7 @@ class FamilySearch extends Family
     {
         return [
             [['fam_background_id', 'father_phonenum', 'mother_phonenum', 'sibling1_age', 'sibling1_grade_or_year', 'sibling2_age', 'sibling2_grade_or_year'], 'integer'],
-            [['name_of_father', 'father_occupation', 'father_company_address', 'father_birthdate', 'name_of_mother', 'mother_occupation', 'mother_company_address', 'mother_birthdate', 'sibling1_name', 'sibling1_school', 'sibling1_employed', 'sibling1_married', 'sibling2_name', 'sibling2_school', 'sibling2_employed', 'sibling2_married', 'income_per_year_in_words'], 'safe'],
+            [['name_of_father', 'father_occupation', 'father_company_address', 'father_birthdate', 'name_of_mother', 'mother_occupation', 'mother_company_address', 'mother_birthdate', 'sibling1_name', 'sibling1_school', 'sibling1_employed', 'sibling1_married', 'sibling2_name', 'sibling2_school', 'sibling2_employed', 'sibling2_married'], 'safe'],
             [['income_per_year'], 'number'],
         ];
     }
@@ -82,8 +82,7 @@ class FamilySearch extends Family
             ->andFilterWhere(['like', 'sibling2_name', $this->sibling2_name])
             ->andFilterWhere(['like', 'sibling2_school', $this->sibling2_school])
             ->andFilterWhere(['like', 'sibling2_employed', $this->sibling2_employed])
-            ->andFilterWhere(['like', 'sibling2_married', $this->sibling2_married])
-            ->andFilterWhere(['like', 'income_per_year_in_words', $this->income_per_year_in_words]);
+            ->andFilterWhere(['like', 'sibling2_married', $this->sibling2_married]);
 
         return $dataProvider;
     }

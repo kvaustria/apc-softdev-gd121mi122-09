@@ -31,7 +31,6 @@ use Yii;
  * @property string $sibling2_employed
  * @property string $sibling2_married
  * @property string $income_per_year
- * @property string $income_per_year_in_words
  *
  * @property Applicants[] $applicants
  */
@@ -51,13 +50,13 @@ class Family extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name_of_father', 'father_occupation', 'father_company_address', 'father_phonenum', 'father_birthdate', 'name_of_mother', 'mother_occupation', 'mother_company_address', 'mother_phonenum', 'mother_birthdate', 'income_per_year', 'income_per_year_in_words'], 'required'],
+            [['name_of_father', 'father_occupation', 'father_company_address', 'father_phonenum', 'father_birthdate', 'name_of_mother', 'mother_occupation', 'mother_company_address', 'mother_phonenum', 'mother_birthdate', 'income_per_year'], 'required'],
             [['father_company_address', 'mother_company_address', 'sibling1_employed', 'sibling1_married', 'sibling2_employed', 'sibling2_married'], 'string'],
             [['father_phonenum', 'mother_phonenum', 'sibling1_age', 'sibling1_grade_or_year', 'sibling2_age', 'sibling2_grade_or_year'], 'integer'],
             [['father_birthdate', 'mother_birthdate'], 'safe'],
             [['income_per_year'], 'number'],
             [['name_of_father', 'father_occupation', 'name_of_mother', 'mother_occupation', 'sibling1_name'], 'string', 'max' => 45],
-            [['sibling1_school', 'sibling2_school', 'income_per_year_in_words'], 'string', 'max' => 100],
+            [['sibling1_school', 'sibling2_school'], 'string', 'max' => 100],
             [['sibling2_name'], 'string', 'max' => 40]
         ];
     }
@@ -92,7 +91,6 @@ class Family extends \yii\db\ActiveRecord
             'sibling2_employed' => 'Sibling2 Employed',
             'sibling2_married' => 'Sibling2 Married',
             'income_per_year' => 'Income Per Year',
-            'income_per_year_in_words' => 'Income Per Year In Words',
         ];
     }
 

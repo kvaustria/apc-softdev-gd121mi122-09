@@ -10,7 +10,7 @@ use Yii;
  * @property string $last_name
  * @property string $first_name
  * @property string $middle_name
- * @property string $city_address
+ * @property string $home_address
  * @property integer $cellphone_no
  * @property string $date_of_birth
  * @property integer $age
@@ -41,13 +41,13 @@ class Personal extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['last_name', 'first_name', 'city_address', 'cellphone_no', 'date_of_birth', 'age', 'status', 'sex', 'place_of_birth', 'nationality', 'height', 'weight', 'religion'], 'required'],
+            [['last_name', 'first_name', 'home_address', 'cellphone_no', 'date_of_birth', 'age', 'status', 'sex', 'place_of_birth', 'nationality', 'height', 'weight', 'religion'], 'required'],
             [['cellphone_no', 'age'], 'integer'],
             [['date_of_birth'], 'safe'],
             [['status', 'sex'], 'string'],
             [['height', 'weight'], 'number'],
             [['last_name', 'first_name', 'middle_name', 'place_of_birth', 'nationality', 'religion'], 'string', 'max' => 30],
-            [['city_address'], 'string', 'max' => 300]
+            [['home_address'], 'string', 'max' => 300]
         ];
     }
 
@@ -60,7 +60,7 @@ class Personal extends \yii\db\ActiveRecord
             'last_name' => 'Last Name',
             'first_name' => 'First Name',
             'middle_name' => 'Middle Name',
-            'city_address' => 'City Address',
+            'home_address' => 'Home Address',
             'cellphone_no' => 'Cellphone No',
             'date_of_birth' => 'Date Of Birth',
             'age' => 'Age',
@@ -68,8 +68,8 @@ class Personal extends \yii\db\ActiveRecord
             'sex' => 'Sex',
             'place_of_birth' => 'Place Of Birth',
             'nationality' => 'Nationality',
-            'height' => 'Height (cm)',
-            'weight' => 'Weight (kg)',
+            'height' => 'Height (in cm)',
+            'weight' => 'Weight (in kg)',
             'religion' => 'Religion',
             'personal_id' => 'Personal ID',
         ];
