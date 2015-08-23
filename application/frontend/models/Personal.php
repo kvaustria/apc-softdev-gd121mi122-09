@@ -68,8 +68,8 @@ class Personal extends \yii\db\ActiveRecord
             'sex' => 'Sex',
             'place_of_birth' => 'Place Of Birth',
             'nationality' => 'Nationality',
-            'height' => 'Height',
-            'weight' => 'Weight',
+            'height' => 'Height (cm)',
+            'weight' => 'Weight (kg)',
             'religion' => 'Religion',
             'personal_id' => 'Personal ID',
         ];
