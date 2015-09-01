@@ -61,6 +61,7 @@ AppAsset::register($this);
     //                ['label' => 'About', 'url' => ['/site/about']],
     //                ['label' => 'Contact', 'url' => ['/site/contact']],
                     ['label' => 'Signup', 'url' => ['/site/signup']],
+                    ['label' => 'Application Form', 'url' => ['/applicants/create']],
                     
    //                 [
    //                    'label' => 'Application Forms',

@@ -8,6 +8,7 @@ use common\models\ApplicantsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ApplicantsController implements the CRUD actions for Applicants model.
@@ -63,6 +64,23 @@ class ApplicantsController extends Controller
         $model = new Applicants();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+             //get the instance of the uploaded file
+                $imageName = $model->form138;
+                $imageName2 = $model->certificate;
+                $imageName3 = $model->taxreturn;
+
+                $model->file = UploadedFile::getInstance($model, 'file1');
+                $model->file->saveAs( 'uploads/'.$imageName.'.'.$model->file1->extension );
+
+                $model->file2 = UploadedFile::getInstance($model, 'file2');
+                $model->file2->saveAs( 'uploads/'.$imageName2.'.'.$model->file2->extension );
+
+                $model->file3 = UploadedFile::getInstance($model, 'file3');
+                $model->file3->saveAs( 'uploads/'.$imageName3.'.'.$model->file3->extension );
+
+
+
             return $this->redirect(['view', 'id' => $model->applicant_id]);
         } else {
             return $this->render('create', [

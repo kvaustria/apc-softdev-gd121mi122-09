@@ -187,6 +187,8 @@ class GridView extends BaseListView
     /**
      * @var string the HTML display when the content of a cell is empty
      */
+
+
     public $emptyCell = '&nbsp;';
     /**
      * @var \yii\base\Model the model that keeps the user-entered filter data. When this property is set,
