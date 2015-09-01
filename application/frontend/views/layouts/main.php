@@ -61,17 +61,17 @@ AppAsset::register($this);
     //                ['label' => 'About', 'url' => ['/site/about']],
     //                ['label' => 'Contact', 'url' => ['/site/contact']],
                     ['label' => 'Signup', 'url' => ['/site/signup']],
-                    ['label' => 'View all', 'url' => ['/site/about']],
-                    [
-                       'label' => 'Application Forms',
-                       'items' => [
-                            ['label' => 'Personal Background', 'url' => ['/personal/create']],
-                            ['label' => 'Academic Background', 'url' => ['/academic/create']],
-                            ['label' => 'College Plan', 'url' => ['/college/create']],
-                            ['label' => 'Family Background', 'url' => ['/family/create']],
-                            ['label' => 'Other Requirements', 'url' => ['/fileserver/create']],
-                        ],
-                    ],   
+                    
+   //                 [
+   //                    'label' => 'Application Forms',
+    //                   'items' => [
+    //                        ['label' => 'Personal Background', 'url' => ['/personal/create']],
+    //                        ['label' => 'Academic Background', 'url' => ['/academic/create']],
+     //                       ['label' => 'College Plan', 'url' => ['/college/create']],
+    //                        ['label' => 'Family Background', 'url' => ['/family/create']],
+     //                       ['label' => 'Other Requirements', 'url' => ['/fileserver/create']],
+      //                  ],
+   //                 ],   
                     Yii::$app->user->isGuest ?
       //                ['label' => 'Signup', 'url' => ['/site/signup']];
                         ['label' => 'Login', 'url' => ['/site/login']] :

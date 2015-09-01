@@ -6,7 +6,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\SignupForm */
 
-$this->title = 'Signup';
+$this->title = 'Sign up';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup">
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
-                    <?= Html::button('Proceed to Application Form', array('onclick' => 'js:document.location.href="index.php?r=personal/create"', 'class' => 'btn btn-info')); ?>
+                    <?= Html::button('Proceed to Application Form', array('onclick' => 'js:document.location.href="index.php?r=applicants/create"', 'class' => 'btn btn-info')); ?>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>

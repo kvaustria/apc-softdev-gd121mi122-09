@@ -13,7 +13,7 @@ $this->title = 'My Yii Application';
             when applying for scholarship.</p>
         <p class="lead">Make sure to <font color = "red">Signup</font> first before clicking the button below.</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://localhost/module1/frontend/web/index.php?r=personal%2Fcreate">Apply for Scholarship</a></p>
+        <p><a class="btn btn-lg btn-success" href="http://localhost/apc-softdev-gd121mi122-09/application/frontend/web/index.php?r=applicants%2Fcreate">Apply for Scholarship</a></p>
     </div>
 
     <div class="body-content">
