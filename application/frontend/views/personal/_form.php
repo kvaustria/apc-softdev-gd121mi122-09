@@ -1,8 +1,11 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use dosamigos\datepicker\DatePicker
+/* use yii\widgets\ActiveForm; */
+use dosamigos\datepicker\DatePicker;
+
+use kartik\widgets\ActiveForm;
+use kartik\builder\Form;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Personal */
