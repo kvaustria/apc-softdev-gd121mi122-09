@@ -3,8 +3,8 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Applicants;
-use frontend\models\ApplicantsSearch;
+use common\models\Applicants;
+use common\models\ApplicantsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -117,18 +117,5 @@ class ApplicantsController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }
-
-    public function actionApplicants()
-    {
-        $model = new Applicants();
-        if ($model->load(Yii::$app->request->post())){
-            if ($user = $model->create()){
-                return $this->goHome();
-            }
-        }
-        return $this->render('create', [
-            'model' => $model,
-            ]);
     }
 }
