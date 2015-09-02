@@ -73,13 +73,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'mother_company_Add:ntext',
             'mother_cellnum',
             'mother_birthdate',
-            'sibling:ntext',
-            'sibling_age:ntext',
+            'sibling',
+            'sibling_age',
             'sibling_school:ntext',
             'sibling_grd_yr:ntext',
             'employed',
             'married',
             'household_income_per_yr',
+            'form138',
+            'certificate',
+            'taxreturn',
         ],
     ]) ?>
 

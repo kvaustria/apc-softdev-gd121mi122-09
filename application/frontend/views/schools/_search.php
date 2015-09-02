@@ -4,26 +4,22 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\CollegeSearch */
+/* @var $model common\models\SchoolsSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="college-search">
+<div class="schools-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'first_school_plan_to_enroll_in') ?>
+    <?= $form->field($model, 'school_id') ?>
 
-    <?= $form->field($model, 'second_school_plan_to_enroll_in') ?>
+    <?= $form->field($model, 'provincial') ?>
 
-    <?= $form->field($model, 'course_plan_to_take1') ?>
-
-    <?= $form->field($model, 'course_plan_to_take2') ?>
-
-    <?= $form->field($model, 'college_plan_id') ?>
+    <?= $form->field($model, 'ncr') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

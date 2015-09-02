@@ -3,16 +3,16 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Family;
-use frontend\models\FamilySearch;
+use common\models\Areas;
+use common\models\AreasSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * FamilyController implements the CRUD actions for Family model.
+ * AreasController implements the CRUD actions for Areas model.
  */
-class FamilyController extends Controller
+class AreasController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class FamilyController extends Controller
     }
 
     /**
-     * Lists all Family models.
+     * Lists all Areas models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new FamilySearch();
+        $searchModel = new AreasSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class FamilyController extends Controller
     }
 
     /**
-     * Displays a single Family model.
+     * Displays a single Areas model.
      * @param integer $id
      * @return mixed
      */
@@ -54,16 +54,16 @@ class FamilyController extends Controller
     }
 
     /**
-     * Creates a new Family model.
+     * Creates a new Areas model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Family();
+        $model = new Areas();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->fam_background_id]);
+            return $this->redirect(['view', 'id' => $model->area_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +72,7 @@ class FamilyController extends Controller
     }
 
     /**
-     * Updates an existing Family model.
+     * Updates an existing Areas model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,7 +82,7 @@ class FamilyController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->fam_background_id]);
+            return $this->redirect(['view', 'id' => $model->area_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -91,7 +91,7 @@ class FamilyController extends Controller
     }
 
     /**
-     * Deletes an existing Family model.
+     * Deletes an existing Areas model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +104,15 @@ class FamilyController extends Controller
     }
 
     /**
-     * Finds the Family model based on its primary key value.
+     * Finds the Areas model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Family the loaded model
+     * @return Areas the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Family::findOne($id)) !== null) {
+        if (($model = Areas::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

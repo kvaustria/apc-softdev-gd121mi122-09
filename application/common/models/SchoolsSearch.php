@@ -1,16 +1,16 @@
 <?php
 
-namespace frontend\models;
+namespace common\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\College;
+use common\models\Schools;
 
 /**
- * CollegeSearch represents the model behind the search form about `frontend\models\College`.
+ * SchoolsSearch represents the model behind the search form about `common\models\Schools`.
  */
-class CollegeSearch extends College
+class SchoolsSearch extends Schools
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class CollegeSearch extends College
     public function rules()
     {
         return [
-            [['first_school_plan_to_enroll_in','second_school_plan_to_enroll_in', 'course_plan_to_take1', 'course_plan_to_take2'], 'safe'],
-            [['college_plan_id'], 'integer'],
+            [['school_id'], 'integer'],
+            [['provincial', 'ncr'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class CollegeSearch extends College
      */
     public function search($params)
     {
-        $query = College::find();
+        $query = Schools::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -56,13 +56,11 @@ class CollegeSearch extends College
         }
 
         $query->andFilterWhere([
-            'college_plan_id' => $this->college_plan_id,
+            'school_id' => $this->school_id,
         ]);
 
-        $query->andFilterWhere(['like', 'first_school_plan_to_enroll_in', $this->first_school_plan_to_enroll_in])
-            ->andFilterWhere(['like', 'second_school_plan_to_enroll_in', $this->second_school_plan_to_enroll_in])
-            ->andFilterWhere(['like', 'course_plan_to_take1', $this->course_plan_to_take1])
-            ->andFilterWhere(['like', 'course_plan_to_take2', $this->course_plan_to_take2]);
+        $query->andFilterWhere(['like', 'provincial', $this->provincial])
+            ->andFilterWhere(['like', 'ncr', $this->ncr]);
 
         return $dataProvider;
     }

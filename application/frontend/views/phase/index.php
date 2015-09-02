@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel frontend\models\ApplicantsSearch */
+/* @var $searchModel common\models\PhaseSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Applicants';
+$this->title = 'Phases';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="applicants-index">
+<div class="phase-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Applicants', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Phase', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,7 +25,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'applicant_id',
+            'phase_id',
+            'grade_screening',
+            'scholarship_exam:ntext',
+            'interview:ntext',
+            'home_visit_checklist:ntext',
+            // 'points',
+            // 'scholarship_status',
+            // 'approved_by',
+            // 'remarks:ntext',
+            // 'date',
+            // 'applicant_phase',
+            // 'school_attending_to:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

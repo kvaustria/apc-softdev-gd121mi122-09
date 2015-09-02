@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Applicants */
+/* @var $model common\models\Applicants */
 
 $this->title = 'Create Applicants';
 $this->params['breadcrumbs'][] = ['label' => 'Applicants', 'url' => ['index']];

@@ -3,16 +3,16 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Academic;
-use frontend\models\AcademicSearch;
+use common\models\Schools;
+use common\models\SchoolsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * AcademicController implements the CRUD actions for Academic model.
+ * SchoolsController implements the CRUD actions for Schools model.
  */
-class AcademicController extends Controller
+class SchoolsController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class AcademicController extends Controller
     }
 
     /**
-     * Lists all Academic models.
+     * Lists all Schools models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new AcademicSearch();
+        $searchModel = new SchoolsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class AcademicController extends Controller
     }
 
     /**
-     * Displays a single Academic model.
+     * Displays a single Schools model.
      * @param integer $id
      * @return mixed
      */
@@ -54,16 +54,16 @@ class AcademicController extends Controller
     }
 
     /**
-     * Creates a new Academic model.
+     * Creates a new Schools model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Academic();
+        $model = new Schools();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->academic_id]);
+            return $this->redirect(['view', 'id' => $model->school_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +72,7 @@ class AcademicController extends Controller
     }
 
     /**
-     * Updates an existing Academic model.
+     * Updates an existing Schools model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,7 +82,7 @@ class AcademicController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->academic_id]);
+            return $this->redirect(['view', 'id' => $model->school_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -91,7 +91,7 @@ class AcademicController extends Controller
     }
 
     /**
-     * Deletes an existing Academic model.
+     * Deletes an existing Schools model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +104,15 @@ class AcademicController extends Controller
     }
 
     /**
-     * Finds the Academic model based on its primary key value.
+     * Finds the Schools model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Academic the loaded model
+     * @return Schools the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Academic::findOne($id)) !== null) {
+        if (($model = Schools::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

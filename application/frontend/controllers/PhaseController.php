@@ -3,16 +3,16 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Personal;
-use frontend\models\PersonalSearch;
+use common\models\Phase;
+use common\models\PhaseSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PersonalController implements the CRUD actions for Personal model.
+ * PhaseController implements the CRUD actions for Phase model.
  */
-class PersonalController extends Controller
+class PhaseController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class PersonalController extends Controller
     }
 
     /**
-     * Lists all Personal models.
+     * Lists all Phase models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PersonalSearch();
+        $searchModel = new PhaseSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class PersonalController extends Controller
     }
 
     /**
-     * Displays a single Personal model.
+     * Displays a single Phase model.
      * @param integer $id
      * @return mixed
      */
@@ -54,16 +54,16 @@ class PersonalController extends Controller
     }
 
     /**
-     * Creates a new Personal model.
+     * Creates a new Phase model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Personal();
+        $model = new Phase();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->personal_id]);
+            return $this->redirect(['view', 'id' => $model->phase_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +72,7 @@ class PersonalController extends Controller
     }
 
     /**
-     * Updates an existing Personal model.
+     * Updates an existing Phase model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,7 +82,7 @@ class PersonalController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->personal_id]);
+            return $this->redirect(['view', 'id' => $model->phase_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -91,7 +91,7 @@ class PersonalController extends Controller
     }
 
     /**
-     * Deletes an existing Personal model.
+     * Deletes an existing Phase model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +104,15 @@ class PersonalController extends Controller
     }
 
     /**
-     * Finds the Personal model based on its primary key value.
+     * Finds the Phase model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Personal the loaded model
+     * @return Phase the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Personal::findOne($id)) !== null) {
+        if (($model = Phase::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
