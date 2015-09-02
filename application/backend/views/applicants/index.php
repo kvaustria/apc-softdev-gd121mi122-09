@@ -15,21 +15,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Applicants', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'applicant_id',
+            //'applicant_id',
             'first_name',
             'middle_name',
             'last_name',
-            'add1_house_num',
+            //'add1_house_num',
             // 'add1_st_add',
             // 'add1_bry_add',
             // 'add1_city_add',
@@ -39,9 +35,9 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'add2_city_add',
             // 'cell_no',
             // 'date_of_birth',
-            // 'age',
             // 'status',
-            // 'sex',
+             'sex',
+			 'age',
             // 'place_of_birth',
             // 'nationality',
             // 'height',

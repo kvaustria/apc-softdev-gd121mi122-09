@@ -19,7 +19,7 @@ class PhaseSearch extends Phase
     {
         return [
             [['phase_id', 'points', 'applicant_phase'], 'integer'],
-            [['grade_screening', 'scholarship_exam', 'interview', 'home_visit_checklist', 'scholarship_status', 'approved_by', 'remarks', 'date', 'school_attending_to'], 'safe'],
+            [['grade_screening', 'grd_screening_comment', 'scholarship_exam', 'exam_result_comment', 'interview', 'home_visit_checklist', 'scholarship_status', 'approved_by', 'remarks', 'date', 'school_attending_to'], 'safe'],
         ];
     }
 
@@ -63,7 +63,9 @@ class PhaseSearch extends Phase
         ]);
 
         $query->andFilterWhere(['like', 'grade_screening', $this->grade_screening])
+            ->andFilterWhere(['like', 'grd_screening_comment', $this->grd_screening_comment])
             ->andFilterWhere(['like', 'scholarship_exam', $this->scholarship_exam])
+            ->andFilterWhere(['like', 'exam_result_comment', $this->exam_result_comment])
             ->andFilterWhere(['like', 'interview', $this->interview])
             ->andFilterWhere(['like', 'home_visit_checklist', $this->home_visit_checklist])
             ->andFilterWhere(['like', 'scholarship_status', $this->scholarship_status])

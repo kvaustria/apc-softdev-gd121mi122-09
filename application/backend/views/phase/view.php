@@ -30,8 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'phase_id',
             'grade_screening',
-            'scholarship_exam:ntext',
-            'interview:ntext',
+            'grd_screening_comment:ntext',
+            'scholarship_exam',
+            'exam_result_comment:ntext',
+            'interview',
             'home_visit_checklist:ntext',
             'points',
             'scholarship_status',

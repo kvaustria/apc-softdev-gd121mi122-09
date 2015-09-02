@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use common\models\Areas;
+use common\models\Schools;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Applicants */
@@ -54,11 +57,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'religion')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'region_of_hs_graduating_from')->textInput() ?>
+	<?= $form->field($model, 'region_of_hs_graduating_from')->dropDownList(
+	ArrayHelper::map(Areas::find()->all(), 'area_id','region'),
+	['prompt'=>'Select HS region']
+	) ?>
 
     <?= $form->field($model, 'type_of_hs_graduating_from')->dropDownList([ 'PUBLIC' => 'PUBLIC', 'MASA' => 'MASA', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'hs_graduating_from')->textInput(['maxlength' => true]) ?>
+	
 
     <?= $form->field($model, 'section')->textInput() ?>
 
@@ -72,10 +79,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'position_held')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'college_to_apply1')->textInput() ?>
+	<?= $form->field($model, 'college_to_apply1')->dropDownList(
+	ArrayHelper::map(Schools::find()->all(), 'school_id','schools'),
+	['prompt'=>'Select college']
+	) ?>
 
-    <?= $form->field($model, 'college_to_apply2')->textInput() ?>
-
+    
+	<?= $form->field($model, 'college_to_apply2')->dropDownList(
+	ArrayHelper::map(Schools::find()->all(), 'school_id','schools'),
+	['prompt'=>'Select college']
+	) ?>
+	
     <?= $form->field($model, 'course_plan_to_take1')->dropDownList([ 'BS in Computer Science' => 'BS in Computer Science', 'BS in Information Technology' => 'BS in Information Technology', 'BS in Information Management' => 'BS in Information Management', 'BS in Electronics and Communications Engineering' => 'BS in Electronics and Communications Engineering', 'BS in Computer Engineering' => 'BS in Computer Engineering', 'BS in Civil Engineering' => 'BS in Civil Engineering', 'BS in Electrical Engineering' => 'BS in Electrical Engineering', 'BS in Mechanical Engineering' => 'BS in Mechanical Engineering', 'BS in Elementary Education' => 'BS in Elementary Education', 'BS in Secondary Education major in Biology' => 'BS in Secondary Education major in Biology', 'BS in Secondary Education major in Chemistry' => 'BS in Secondary Education major in Chemistry', 'BS in Secondary Education major in Physics' => 'BS in Secondary Education major in Physics', 'BS in Secondary Education major in Mathematics' => 'BS in Secondary Education major in Mathematics', 'BS in Secondary Education major in English' => 'BS in Secondary Education major in English', 'BS in Accountancy' => 'BS in Accountancy', 'BS in Pharmacy' => 'BS in Pharmacy', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'course_plan_to_take2')->dropDownList([ 'BS in Computer Science' => 'BS in Computer Science', 'BS in Information Technology' => 'BS in Information Technology', 'BS in Information Management' => 'BS in Information Management', 'BS in Electronics and Communications Engineering' => 'BS in Electronics and Communications Engineering', 'BS in Computer Engineering' => 'BS in Computer Engineering', 'BS in Civil Engineering' => 'BS in Civil Engineering', 'BS in Electrical Engineering' => 'BS in Electrical Engineering', 'BS in Mechanical Engineering' => 'BS in Mechanical Engineering', 'BS in Elementary Education' => 'BS in Elementary Education', 'BS in Secondary Education major in Biology' => 'BS in Secondary Education major in Biology', 'BS in Secondary Education major in Chemistry' => 'BS in Secondary Education major in Chemistry', 'BS in Secondary Education major in Physics' => 'BS in Secondary Education major in Physics', 'BS in Secondary Education major in Mathematics' => 'BS in Secondary Education major in Mathematics', 'BS in Secondary Education major in English' => 'BS in Secondary Education major in English', 'BS in Accountancy' => 'BS in Accountancy', 'BS in Pharmacy' => 'BS in Pharmacy', ], ['prompt' => '']) ?>

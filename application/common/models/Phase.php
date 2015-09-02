@@ -9,7 +9,9 @@ use Yii;
  *
  * @property integer $phase_id
  * @property string $grade_screening
+ * @property string $grd_screening_comment
  * @property string $scholarship_exam
+ * @property string $exam_result_comment
  * @property string $interview
  * @property string $home_visit_checklist
  * @property integer $points
@@ -38,8 +40,8 @@ class Phase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['grade_screening', 'scholarship_exam', 'interview', 'home_visit_checklist', 'points', 'scholarship_status', 'approved_by', 'remarks', 'date', 'applicant_phase', 'school_attending_to'], 'required'],
-            [['grade_screening', 'scholarship_exam', 'interview', 'home_visit_checklist', 'scholarship_status', 'remarks', 'school_attending_to'], 'string'],
+            [['grade_screening', 'home_visit_checklist', 'points', 'scholarship_status', 'approved_by', 'remarks', 'date', 'applicant_phase', 'school_attending_to'], 'required'],
+            [['grade_screening', 'grd_screening_comment', 'scholarship_exam', 'exam_result_comment', 'interview', 'home_visit_checklist', 'scholarship_status', 'remarks', 'school_attending_to'], 'string'],
             [['points', 'applicant_phase'], 'integer'],
             [['date'], 'safe'],
             [['approved_by'], 'string', 'max' => 100]
@@ -54,7 +56,9 @@ class Phase extends \yii\db\ActiveRecord
         return [
             'phase_id' => 'Phase ID',
             'grade_screening' => 'Grade Screening',
+            'grd_screening_comment' => 'Grd Screening Comment',
             'scholarship_exam' => 'Scholarship Exam',
+            'exam_result_comment' => 'Exam Result Comment',
             'interview' => 'Interview',
             'home_visit_checklist' => 'Home Visit Checklist',
             'points' => 'Points',
@@ -62,7 +66,7 @@ class Phase extends \yii\db\ActiveRecord
             'approved_by' => 'Approved By',
             'remarks' => 'Remarks',
             'date' => 'Date',
-            'applicant_phase' => 'Applicant Phase',
+            'applicant_phase' => 'Applicant',
             'school_attending_to' => 'School Attending To',
         ];
     }

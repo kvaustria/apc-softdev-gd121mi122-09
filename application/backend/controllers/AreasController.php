@@ -1,18 +1,18 @@
 <?php
 
-namespace frontend\controllers;
+namespace backend\controllers;
 
 use Yii;
-use common\models\Applicants;
-use common\models\ApplicantsSearch;
+use common\models\Areas;
+use common\models\AreasSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ApplicantsController implements the CRUD actions for Applicants model.
+ * AreasController implements the CRUD actions for Areas model.
  */
-class ApplicantsController extends Controller
+class AreasController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class ApplicantsController extends Controller
     }
 
     /**
-     * Lists all Applicants models.
+     * Lists all Areas models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ApplicantsSearch();
+        $searchModel = new AreasSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class ApplicantsController extends Controller
     }
 
     /**
-     * Displays a single Applicants model.
+     * Displays a single Areas model.
      * @param integer $id
      * @return mixed
      */
@@ -54,16 +54,16 @@ class ApplicantsController extends Controller
     }
 
     /**
-     * Creates a new Applicants model.
+     * Creates a new Areas model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Applicants();
+        $model = new Areas();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->applicant_id]);
+            return $this->redirect(['view', 'id' => $model->area_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +72,7 @@ class ApplicantsController extends Controller
     }
 
     /**
-     * Updates an existing Applicants model.
+     * Updates an existing Areas model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,7 +82,7 @@ class ApplicantsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->applicant_id]);
+            return $this->redirect(['view', 'id' => $model->area_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -91,7 +91,7 @@ class ApplicantsController extends Controller
     }
 
     /**
-     * Deletes an existing Applicants model.
+     * Deletes an existing Areas model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +104,15 @@ class ApplicantsController extends Controller
     }
 
     /**
-     * Finds the Applicants model based on its primary key value.
+     * Finds the Areas model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Applicants the loaded model
+     * @return Areas the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Applicants::findOne($id)) !== null) {
+        if (($model = Areas::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

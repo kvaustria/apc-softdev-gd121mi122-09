@@ -4,17 +4,17 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Schools */
+/* @var $model common\models\Areas */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="schools-form">
+<div class="areas-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'schools')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'region')->dropDownList([ 'NCR' => 'NCR', 'PROVINCIAL' => 'PROVINCIAL', '' => '', ], ['prompt' => '']) ?>
+
+    <?= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

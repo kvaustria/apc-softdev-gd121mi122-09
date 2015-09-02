@@ -19,7 +19,7 @@ class AreasSearch extends Areas
     {
         return [
             [['area_id'], 'integer'],
-            [['NCR', 'ISABELA', 'CAR', 'PANGASINAN', 'ZAMBALES', 'NUEVA_ECIJA', 'TARLAC', 'PAMPANGA', 'BULACAN', 'CAVITE', 'LAGUNA', 'BATANGAS', 'QUEZON', 'CAMARINES SUR', 'NEGROS_OCCIDENTAL', 'ILOILO', 'CEBU', 'LEYTE', 'PALAWAN', 'DAVAO', 'SOUTH_COTABATO', 'MISAMIS_ORIENTAL'], 'safe'],
+            [['region', 'city'], 'safe'],
         ];
     }
 
@@ -59,28 +59,8 @@ class AreasSearch extends Areas
             'area_id' => $this->area_id,
         ]);
 
-        $query->andFilterWhere(['like', 'NCR', $this->NCR])
-            ->andFilterWhere(['like', 'ISABELA', $this->ISABELA])
-            ->andFilterWhere(['like', 'CAR', $this->CAR])
-            ->andFilterWhere(['like', 'PANGASINAN', $this->PANGASINAN])
-            ->andFilterWhere(['like', 'ZAMBALES', $this->ZAMBALES])
-            ->andFilterWhere(['like', 'NUEVA_ECIJA', $this->NUEVA_ECIJA])
-            ->andFilterWhere(['like', 'TARLAC', $this->TARLAC])
-            ->andFilterWhere(['like', 'PAMPANGA', $this->PAMPANGA])
-            ->andFilterWhere(['like', 'BULACAN', $this->BULACAN])
-            ->andFilterWhere(['like', 'CAVITE', $this->CAVITE])
-            ->andFilterWhere(['like', 'LAGUNA', $this->LAGUNA])
-            ->andFilterWhere(['like', 'BATANGAS', $this->BATANGAS])
-            ->andFilterWhere(['like', 'QUEZON', $this->QUEZON])
-            ->andFilterWhere(['like', 'CAMARINES SUR', $this->CAMARINES SUR])
-            ->andFilterWhere(['like', 'NEGROS_OCCIDENTAL', $this->NEGROS_OCCIDENTAL])
-            ->andFilterWhere(['like', 'ILOILO', $this->ILOILO])
-            ->andFilterWhere(['like', 'CEBU', $this->CEBU])
-            ->andFilterWhere(['like', 'LEYTE', $this->LEYTE])
-            ->andFilterWhere(['like', 'PALAWAN', $this->PALAWAN])
-            ->andFilterWhere(['like', 'DAVAO', $this->DAVAO])
-            ->andFilterWhere(['like', 'SOUTH_COTABATO', $this->SOUTH_COTABATO])
-            ->andFilterWhere(['like', 'MISAMIS_ORIENTAL', $this->MISAMIS_ORIENTAL]);
+        $query->andFilterWhere(['like', 'region', $this->region])
+            ->andFilterWhere(['like', 'city', $this->city]);
 
         return $dataProvider;
     }

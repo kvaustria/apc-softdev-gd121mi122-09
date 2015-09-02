@@ -14,15 +14,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'grade_screening')->dropDownList([ 'PASSED' => 'PASSED', 'FAILED' => 'FAILED', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'scholarship_exam')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'grd_screening_comment')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'interview')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'scholarship_exam')->dropDownList([ 'PASSED' => 'PASSED', 'FAILED' => 'FAILED', '' => '', ], ['prompt' => '']) ?>
+
+    <?= $form->field($model, 'exam_result_comment')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'interview')->dropDownList([ 'PASSED' => 'PASSED', 'FAILED' => 'FAILED', '' => '', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'home_visit_checklist')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'points')->textInput() ?>
 
-    <?= $form->field($model, 'scholarship_status')->dropDownList([ 'ACCEPTED' => 'ACCEPTED', 'DISQUALIFIED' => 'DISQUALIFIED', '' => '', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'scholarship_status')->dropDownList([ 'ACCEPTED' => 'ACCEPTED', 'DISQUALIFIED' => 'DISQUALIFIED', 'PENDING' => 'PENDING', '' => '', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'approved_by')->textInput(['maxlength' => true]) ?>
 

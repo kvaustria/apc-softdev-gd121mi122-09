@@ -18,8 +18,8 @@ class ApplicantsSearch extends Applicants
     public function rules()
     {
         return [
-            [['applicant_id', 'add1_house_num', 'add2_house_num', 'cell_no', 'age', 'height', 'weight', 'region_of_hs_graduating_from', 'section', 'school_tellno', 'college_to_apply1', 'college_to_apply2', 'father_cellnum', 'mother_cellnum', 'sibling_age'], 'integer'],
-            [['first_name', 'middle_name', 'last_name', 'add1_st_add', 'add1_bry_add', 'add1_city_add', 'add2_st_add', 'add2_bry_add', 'add2_city_add', 'date_of_birth', 'status', 'sex', 'place_of_birth', 'nationality', 'religion', 'type_of_hs_graduating_from', 'hs_graduating_from', 'complete_school_add', 'name_of_principal', 'organization', 'position_held', 'course_plan_to_take1', 'course_plan_to_take2', 'fathername', 'father_occu', 'father_company_Add', 'father_birthdate', 'mothername', 'mother_occu', 'mother_company_Add', 'mother_birthdate', 'sibling', 'sibling_school', 'sibling_grd_yr', 'employed', 'married', 'form138', 'certificate', 'taxreturn'], 'safe'],
+            [['applicant_id', 'add1_house_num', 'add2_house_num', 'cell_no', 'age', 'height', 'weight', 'region_of_hs_graduating_from', 'section', 'school_tellno', 'college_to_apply1', 'college_to_apply2', 'father_cellnum', 'mother_cellnum'], 'integer'],
+            [['first_name', 'middle_name', 'last_name', 'add1_st_add', 'add1_bry_add', 'add1_city_add', 'add2_st_add', 'add2_bry_add', 'add2_city_add', 'date_of_birth', 'status', 'sex', 'place_of_birth', 'nationality', 'religion', 'type_of_hs_graduating_from', 'hs_graduating_from', 'complete_school_add', 'name_of_principal', 'organization', 'position_held', 'course_plan_to_take1', 'course_plan_to_take2', 'fathername', 'father_occu', 'father_company_Add', 'father_birthdate', 'mothername', 'mother_occu', 'mother_company_Add', 'mother_birthdate', 'sibling', 'sibling_age', 'sibling_school', 'sibling_grd_yr', 'employed', 'married', 'form138', 'certificate', 'taxreturn'], 'safe'],
             [['household_income_per_yr'], 'number'],
         ];
     }
@@ -74,7 +74,6 @@ class ApplicantsSearch extends Applicants
             'father_birthdate' => $this->father_birthdate,
             'mother_cellnum' => $this->mother_cellnum,
             'mother_birthdate' => $this->mother_birthdate,
-            'sibling_age' => $this->sibling_age, 
             'household_income_per_yr' => $this->household_income_per_yr,
         ]);
 
@@ -106,7 +105,7 @@ class ApplicantsSearch extends Applicants
             ->andFilterWhere(['like', 'mothername', $this->mothername])
             ->andFilterWhere(['like', 'mother_occu', $this->mother_occu])
             ->andFilterWhere(['like', 'mother_company_Add', $this->mother_company_Add])
-         //   ->andFilterWhere(['like', 'sibling', $this->sibling])
+            ->andFilterWhere(['like', 'sibling', $this->sibling])
             ->andFilterWhere(['like', 'sibling_age', $this->sibling_age])
             ->andFilterWhere(['like', 'sibling_school', $this->sibling_school])
             ->andFilterWhere(['like', 'sibling_grd_yr', $this->sibling_grd_yr])

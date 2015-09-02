@@ -19,7 +19,7 @@ class SchoolsSearch extends Schools
     {
         return [
             [['school_id'], 'integer'],
-            [['provincial', 'ncr'], 'safe'],
+            [['schools', 'region'], 'safe'],
         ];
     }
 
@@ -59,8 +59,8 @@ class SchoolsSearch extends Schools
             'school_id' => $this->school_id,
         ]);
 
-        $query->andFilterWhere(['like', 'provincial', $this->provincial])
-            ->andFilterWhere(['like', 'ncr', $this->ncr]);
+        $query->andFilterWhere(['like', 'schools', $this->schools])
+            ->andFilterWhere(['like', 'region', $this->region]);
 
         return $dataProvider;
     }

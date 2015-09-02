@@ -53,15 +53,15 @@ use Yii;
  * @property integer $mother_cellnum
  * @property string $mother_birthdate
  * @property string $sibling
- * @property integer $sibling_age
+ * @property string $sibling_age
  * @property string $sibling_school
  * @property string $sibling_grd_yr
  * @property string $employed
  * @property string $married
  * @property string $household_income_per_yr
- * @property string $form138 
- * @property string $certificate 
- * @property string $taxreturn 
+ * @property string $form138
+ * @property string $certificate
+ * @property string $taxreturn
  *
  * @property Areas $regionOfHsGraduatingFrom
  * @property Schools $collegeToApply1
@@ -73,11 +73,6 @@ class Applicants extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-
-    public $file1;
-    public $file2;
-    public $file3;
-
     public static function tableName()
     {
         return 'applicants';
@@ -89,16 +84,14 @@ class Applicants extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-
-            [['file1', 'file2', 'file3'], 'file'],
-
-            [['first_name', 'middle_name', 'last_name', 'add1_house_num', 'add1_st_add', 'add1_bry_add', 'add1_city_add', 'cell_no', 'date_of_birth', 'age', 'status', 'sex', 'place_of_birth', 'nationality', 'height', 'weight', 'religion', 'region_of_hs_graduating_from', 'type_of_hs_graduating_from', 'hs_graduating_from', 'section', 'complete_school_add', 'name_of_principal', 'school_tellno', 'organization', 'position_held', 'college_to_apply1', 'college_to_apply2', 'course_plan_to_take1', 'course_plan_to_take2', 'fathername', 'father_occu', 'father_company_Add', 'father_cellnum', 'father_birthdate', 'mothername', 'mother_occu', 'mother_company_Add', 'mother_cellnum', 'mother_birthdate', 'sibling', 'sibling_age', 'sibling_school', 'sibling_grd_yr', 'employed', 'married', 'household_income_per_yr'], 'required'],
-            [['add1_house_num', 'add2_house_num', 'cell_no', 'age', 'height', 'weight', 'region_of_hs_graduating_from', 'section', 'school_tellno', 'college_to_apply1', 'college_to_apply2', 'father_cellnum', 'mother_cellnum', 'sibling_age'], 'integer'],
-            [['date_of_birth', 'father_birthdate', 'mother_birthdate'], 'safe'],
-            [['status', 'sex', 'type_of_hs_graduating_from', 'organization', 'position_held', 'course_plan_to_take1', 'course_plan_to_take2', 'father_company_Add', 'mother_company_Add','sibling_school', 'sibling_grd_yr', 'employed', 'married'], 'string'],
+            [['first_name', 'middle_name', 'last_name', 'add1_house_num', 'add1_st_add', 'add1_bry_add', 'add1_city_add', 'date_of_birth', 'age', 'status', 'sex', 'place_of_birth', 'nationality', 'height', 'weight', 'religion', 'region_of_hs_graduating_from', 'type_of_hs_graduating_from', 'hs_graduating_from', 'section', 'complete_school_add', 'name_of_principal', 'school_tellno', 'college_to_apply1', 'college_to_apply2', 'course_plan_to_take1', 'course_plan_to_take2', 'fathername', 'father_occu', 'father_birthdate', 'mothername', 'mother_occu', 'mother_birthdate', 'sibling', 'sibling_age', 'sibling_school', 'sibling_grd_yr', 'employed', 'married', 'household_income_per_yr'], 'required'],
+            [['add1_house_num', 'add2_house_num', 'cell_no', 'age', 'height', 'weight', 'section', 'school_tellno', 'father_cellnum', 'mother_cellnum','region_of_hs_graduating_from','college_to_apply1', 'college_to_apply2'], 'integer'],
+            [['organization', 'position_held','date_of_birth', 'father_birthdate', 'mother_birthdate'], 'safe'],
+            [['status', 'sex', 'type_of_hs_graduating_from', 'organization', 'position_held', 'course_plan_to_take1', 'course_plan_to_take2', 'father_company_Add', 'mother_company_Add', 'sibling', 'sibling_age', 'sibling_school', 'sibling_grd_yr', 'employed', 'married'], 'string'],
             [['household_income_per_yr'], 'number'],
-            [['first_name', 'middle_name', 'last_name', 'add1_st_add', 'add1_bry_add', 'add1_city_add', 'add2_st_add', 'add2_bry_add', 'add2_city_add', 'place_of_birth', 'nationality', 'religion', 'sibling', 'form138','certificate', 'taxreturn'], 'string', 'max' => 50],
-            [['hs_graduating_from', 'complete_school_add', 'name_of_principal', 'fathername', 'father_occu', 'mothername', 'mother_occu'], 'string', 'max' => 100]
+            [['first_name', 'middle_name', 'last_name', 'add1_st_add', 'add1_bry_add', 'add1_city_add', 'add2_st_add', 'add2_bry_add', 'add2_city_add', 'place_of_birth', 'nationality', 'religion'], 'string', 'max' => 50],
+            [['hs_graduating_from', 'complete_school_add', 'name_of_principal', 'fathername', 'father_occu', 'mothername', 'mother_occu'], 'string', 'max' => 100],
+            [['form138', 'certificate', 'taxreturn'], 'string', 'max' => 200]
         ];
     }
 
@@ -112,15 +105,15 @@ class Applicants extends \yii\db\ActiveRecord
             'first_name' => 'First Name',
             'middle_name' => 'Middle Name',
             'last_name' => 'Last Name',
-            'add1_house_num' => 'Add1 House Num',
-            'add1_st_add' => 'Add1 St Add',
-            'add1_bry_add' => 'Add1 Bry Add',
-            'add1_city_add' => 'Add1 City Add',
-            'add2_house_num' => 'Add2 House Num',
-            'add2_st_add' => 'Add2 St Add',
-            'add2_bry_add' => 'Add2 Bry Add',
-            'add2_city_add' => 'Add2 City Add',
-            'cell_no' => 'Cell No',
+            'add1_house_num' => 'Primary House Number address',
+            'add1_st_add' => 'Street Address',
+            'add1_bry_add' => 'Barangay Address',
+            'add1_city_add' => 'City Address',
+            'add2_house_num' => 'Secondary House Number',
+            'add2_st_add' => 'Street Address',
+            'add2_bry_add' => 'Barangay Address',
+            'add2_city_add' => 'City Address',
+            'cell_no' => 'Cellphone Number',
             'date_of_birth' => 'Date Of Birth',
             'age' => 'Age',
             'status' => 'Status',
@@ -130,40 +123,39 @@ class Applicants extends \yii\db\ActiveRecord
             'height' => 'Height',
             'weight' => 'Weight',
             'religion' => 'Religion',
-            'region_of_hs_graduating_from' => 'Region Of Hs Graduating From',
-            'type_of_hs_graduating_from' => 'Type Of Hs Graduating From',
-            'hs_graduating_from' => 'Hs Graduating From',
+            'region_of_hs_graduating_from' => 'Region Of HS Graduating From',
+            'type_of_hs_graduating_from' => 'Type Of HS Graduating From',
+            'hs_graduating_from' => 'High School Graduating From',
             'section' => 'Section',
-            'complete_school_add' => 'Complete School Add',
+            'complete_school_add' => 'Complete School Address',
             'name_of_principal' => 'Name Of Principal',
-            'school_tellno' => 'School Tellno',
+            'school_tellno' => 'School Telephone number',
             'organization' => 'Organization',
             'position_held' => 'Position Held',
-            'college_to_apply1' => 'College To Apply1',
-            'college_to_apply2' => 'College To Apply2',
-            'course_plan_to_take1' => 'Course Plan To Take1',
-            'course_plan_to_take2' => 'Course Plan To Take2',
-            'fathername' => 'Fathername',
-            'father_occu' => 'Father Occu',
-            'father_company_Add' => 'Father Company  Add',
-            'father_cellnum' => 'Father Cellnum',
-            'father_birthdate' => 'Father Birthdate',
-            'mothername' => 'Mothername',
-            'mother_occu' => 'Mother Occu',
-            'mother_company_Add' => 'Mother Company  Add',
-            'mother_cellnum' => 'Mother Cellnum',
-            'mother_birthdate' => 'Mother Birthdate',
+            'college_to_apply1' => 'First choice of college to apply to',
+            'college_to_apply2' => 'Second choice of college to apply to',
+            'course_plan_to_take1' => 'first course choice',
+            'course_plan_to_take2' => 'Second course choice',
+            'fathername' => 'name of father',
+            'father_occu' => 'occupation',
+            'father_company_Add' => 'Company  Address',
+            'father_cellnum' => 'Cellphone number',
+            'father_birthdate' => 'Birth date',
+            'mothername' => 'name of mother',
+            'mother_occu' => 'occupation',
+            'mother_company_Add' => 'Company  Add',
+            'mother_cellnum' => 'Cellphone number',
+            'mother_birthdate' => 'Birth date',
             'sibling' => 'Sibling',
-            'sibling_age' => 'Sibling Age',
-            'sibling_school' => 'Sibling School',
-            'sibling_grd_yr' => 'Sibling Grd Yr',
-            'employed' => 'Employed',
-            'married' => 'Married',
-            'household_income_per_yr' => 'Household Income Per Yr',
-            'file1' => 'Form 138',
-            'file2' => 'Certificate',
-            'file3' => 'Income Tax Return',
-
+            'sibling_age' => 'Age',
+            'sibling_school' => 'School attending',
+            'sibling_grd_yr' => 'Grade/Yr',
+            'employed' => 'Employed?',
+            'married' => 'Married?',
+            'household_income_per_yr' => 'Household Income Per Year',
+            'form138' => 'Form138',
+            'certificate' => 'Certificate',
+            'taxreturn' => 'Tax return',
         ];
     }
 

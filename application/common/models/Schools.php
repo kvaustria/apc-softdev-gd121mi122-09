@@ -8,8 +8,8 @@ use Yii;
  * This is the model class for table "schools".
  *
  * @property integer $school_id
- * @property string $provincial
- * @property string $ncr
+ * @property string $schools
+ * @property string $region
  *
  * @property Applicants[] $applicants
  * @property Applicants[] $applicants0
@@ -30,8 +30,9 @@ class Schools extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['provincial', 'ncr'], 'required'],
-            [['provincial', 'ncr'], 'string']
+            [['schools', 'region'], 'required'],
+            [['region'], 'string'],
+            [['schools'], 'string', 'max' => 50]
         ];
     }
 
@@ -42,8 +43,8 @@ class Schools extends \yii\db\ActiveRecord
     {
         return [
             'school_id' => 'School ID',
-            'provincial' => 'Provincial',
-            'ncr' => 'Ncr',
+            'schools' => 'Schools',
+            'region' => 'Region',
         ];
     }
 

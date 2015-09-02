@@ -19,11 +19,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'grade_screening') ?>
 
+    <?= $form->field($model, 'grd_screening_comment') ?>
+
     <?= $form->field($model, 'scholarship_exam') ?>
 
-    <?= $form->field($model, 'interview') ?>
+    <?= $form->field($model, 'exam_result_comment') ?>
 
-    <?= $form->field($model, 'home_visit_checklist') ?>
+    <?php // echo $form->field($model, 'interview') ?>
+
+    <?php // echo $form->field($model, 'home_visit_checklist') ?>
 
     <?php // echo $form->field($model, 'points') ?>
 

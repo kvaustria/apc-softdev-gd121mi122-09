@@ -26,21 +26,22 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'SM Foundation',
+                'brandLabel' => 'My Company',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
- /*           $menuItems = [
-                ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'About', 'url' => ['/site/about']],
-                ['label' => 'Contact', 'url' => ['/site/contact']],
-                ['label' => 'Application', 'url' => ['/personal/index']],
+            $menuItems = [
+                ['label' => 'SMF', 'url' => ['/site/index']],
+                ['label' => 'Home', 'url' => ['http://localhost/sm/frontend/web/index.php?r=phase%2Fview']],
+                //['label' => 'Contact', 'url' => ['/site/contact']],
             ];
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+				
+				
             } else {
                 $menuItems[] = [
                     'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
@@ -51,35 +52,6 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => $menuItems,
-            ]);
-            NavBar::end();
-*/
-        echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],                 
-    //                ['label' => 'About', 'url' => ['/site/about']],
-    //                ['label' => 'Contact', 'url' => ['/site/contact']],
-                    ['label' => 'Signup', 'url' => ['/site/signup']],
-                    ['label' => 'Application Form', 'url' => ['/applicants/create']],
-                    
-   //                 [
-   //                    'label' => 'Application Forms',
-    //                   'items' => [
-    //                        ['label' => 'Personal Background', 'url' => ['/personal/create']],
-    //                        ['label' => 'Academic Background', 'url' => ['/academic/create']],
-     //                       ['label' => 'College Plan', 'url' => ['/college/create']],
-    //                        ['label' => 'Family Background', 'url' => ['/family/create']],
-     //                       ['label' => 'Other Requirements', 'url' => ['/fileserver/create']],
-      //                  ],
-   //                 ],   
-                    Yii::$app->user->isGuest ?
-      //                ['label' => 'Signup', 'url' => ['/site/signup']];
-                        ['label' => 'Login', 'url' => ['/site/login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
-                            'linkOptions' => ['data-method' => 'post']],
-                ],
             ]);
             NavBar::end();
         ?>
@@ -95,7 +67,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-        <p class="pull-left">&copy; SM Foundation <?= date('Y') ?></p>
+        <p class="pull-left">&copy; SM FOUNDATION <?= date('Y') ?></p>
         <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>
