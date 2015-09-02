@@ -246,6 +246,16 @@ abstract class BaseDataProvider extends Component implements DataProviderInterfa
      * After calling this method, if [[getModels()]], [[getKeys()]] or [[getTotalCount()]] is called again,
      * they will re-execute the query and return the latest data available.
      */
+
+                $query = Model::find();
+                    //add your conditions
+                    $query->andWhere($condition1);
+                    $dataProvider = new \yii\data\ActiveDataProvider([
+                        'query' => $query,
+                        'pagination' => [
+                            'pagesize' => 10
+                        ]
+                    ]);
     public function refresh()
     {
         $this->_totalCount = null;
