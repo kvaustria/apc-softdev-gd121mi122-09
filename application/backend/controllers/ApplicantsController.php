@@ -77,7 +77,7 @@ class ApplicantsController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
+   /** public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
@@ -96,7 +96,7 @@ class ApplicantsController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
+   /** public function actionDelete($id)
     {
         $this->findModel($id)->delete();
 

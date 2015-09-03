@@ -40,10 +40,10 @@ class Phase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['grade_screening', 'home_visit_checklist', 'points', 'scholarship_status', 'approved_by', 'remarks', 'date', 'applicant_phase', 'school_attending_to'], 'required'],
+            [['applicant_phase', 'date', 'points'], 'required'],
             [['grade_screening', 'grd_screening_comment', 'scholarship_exam', 'exam_result_comment', 'interview', 'home_visit_checklist', 'scholarship_status', 'remarks', 'school_attending_to'], 'string'],
             [['points', 'applicant_phase'], 'integer'],
-            [['date'], 'safe'],
+            [['school_attending_to','grade_screening', 'home_visit_checklist', 'scholarship_status', 'approved_by', 'remarks', 'date'], 'safe'],
             [['approved_by'], 'string', 'max' => 100]
         ];
     }
@@ -56,11 +56,11 @@ class Phase extends \yii\db\ActiveRecord
         return [
             'phase_id' => 'Phase ID',
             'grade_screening' => 'Grade Screening',
-            'grd_screening_comment' => 'Grd Screening Comment',
+            'grd_screening_comment' => 'Grade Screening Comment',
             'scholarship_exam' => 'Scholarship Exam',
             'exam_result_comment' => 'Exam Result Comment',
             'interview' => 'Interview',
-            'home_visit_checklist' => 'Home Visit Checklist',
+            'home_visit_checklist' => 'Home Visit Check-list',
             'points' => 'Points',
             'scholarship_status' => 'Scholarship Status',
             'approved_by' => 'Approved By',
