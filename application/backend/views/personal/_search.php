@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\PersonalSearch */
+/* @var $model common\models\PersonalSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -15,17 +15,37 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'first_name') ?>
+    <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'last_name') ?>
+    <?= $form->field($model, 'firstname') ?>
 
-    <?= $form->field($model, 'middle_name') ?>
+    <?= $form->field($model, 'middlename') ?>
 
-    <?= $form->field($model, 'city_address') ?>
+    <?= $form->field($model, 'lastname') ?>
 
-    <?= $form->field($model, 'cellphone_no') ?>
+    <?= $form->field($model, 'house_num1') ?>
 
-    <?php // echo $form->field($model, 'date_of_birth') ?>
+    <?php // echo $form->field($model, 'st_add1') ?>
+
+    <?php // echo $form->field($model, 'brgy_add1') ?>
+
+    <?php // echo $form->field($model, 'city_add1') ?>
+
+    <?php // echo $form->field($model, 'house_num2') ?>
+
+    <?php // echo $form->field($model, 'st_add2') ?>
+
+    <?php // echo $form->field($model, 'brgy_add2') ?>
+
+    <?php // echo $form->field($model, 'city_add2') ?>
+
+    <?php // echo $form->field($model, 'telno') ?>
+
+    <?php // echo $form->field($model, 'email_add') ?>
+
+    <?php // echo $form->field($model, 'celno') ?>
+
+    <?php // echo $form->field($model, 'birthdate') ?>
 
     <?php // echo $form->field($model, 'age') ?>
 
@@ -33,7 +53,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'sex') ?>
 
-    <?php // echo $form->field($model, 'place_of_birth') ?>
+    <?php // echo $form->field($model, 'birthplace') ?>
 
     <?php // echo $form->field($model, 'nationality') ?>
 
@@ -42,8 +62,6 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'weight') ?>
 
     <?php // echo $form->field($model, 'religion') ?>
-
-    <?php // echo $form->field($model, 'personal_id') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

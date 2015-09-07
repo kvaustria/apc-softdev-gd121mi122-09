@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\PersonalSearch */
+/* @var $searchModel common\models\PersonalSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Personals';
@@ -25,21 +25,30 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'first_name',
-            'last_name',
-            'middle_name',
-			'age',
-           // 'city_address',
-            'cellphone_no',
-            // 'date_of_birth',
+            'id',
+            'firstname',
+            'middlename',
+            'lastname',
+            'house_num1',
+            // 'st_add1',
+            // 'brgy_add1',
+            // 'city_add1',
+            // 'house_num2',
+            // 'st_add2',
+            // 'brgy_add2',
+            // 'city_add2',
+            // 'telno',
+            // 'email_add:email',
+            // 'celno',
+            // 'birthdate',
+            // 'age',
             // 'status',
-            'sex',
-            // 'place_of_birth',
+            // 'sex',
+            // 'birthplace',
             // 'nationality',
             // 'height',
             // 'weight',
             // 'religion',
-            // 'personal_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

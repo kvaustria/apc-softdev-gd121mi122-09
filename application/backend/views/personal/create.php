@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Personal */
+/* @var $model common\models\Personal */
 
 $this->title = 'Create Personal';
 $this->params['breadcrumbs'][] = ['label' => 'Personals', 'url' => ['index']];

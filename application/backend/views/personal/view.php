@@ -4,9 +4,9 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Personal */
+/* @var $model common\models\Personal */
 
-$this->title = $model->personal_id;
+$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Personals', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->personal_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->personal_id], [
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,21 +28,30 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'first_name',
-            'last_name',
-            'middle_name',
-            'city_address',
-            'cellphone_no',
-            'date_of_birth',
+            'id',
+            'firstname',
+            'middlename',
+            'lastname',
+            'house_num1',
+            'st_add1',
+            'brgy_add1',
+            'city_add1',
+            'house_num2',
+            'st_add2',
+            'brgy_add2',
+            'city_add2',
+            'telno',
+            'email_add:email',
+            'celno',
+            'birthdate',
             'age',
             'status',
             'sex',
-            'place_of_birth',
+            'birthplace',
             'nationality',
             'height',
             'weight',
             'religion',
-            'personal_id',
         ],
     ]) ?>
 
