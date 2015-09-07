@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Family */
+/* @var $model common\models\Family */
 
 $this->title = 'Create Family';
 $this->params['breadcrumbs'][] = ['label' => 'Families', 'url' => ['index']];

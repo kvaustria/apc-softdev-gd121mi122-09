@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\FamilySearch */
+/* @var $model common\models\FamilySearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -15,57 +15,41 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'fam_background_id') ?>
+    <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'name_of_father') ?>
+    <?= $form->field($model, 'father_name') ?>
 
     <?= $form->field($model, 'father_occupation') ?>
 
-    <?= $form->field($model, 'father_company_address') ?>
+    <?= $form->field($model, 'father_company') ?>
 
-    <?= $form->field($model, 'father_phonenum') ?>
+    <?= $form->field($model, 'father_contact') ?>
 
     <?php // echo $form->field($model, 'father_birthdate') ?>
 
-    <?php // echo $form->field($model, 'name_of_mother') ?>
+    <?php // echo $form->field($model, 'mother_name') ?>
 
     <?php // echo $form->field($model, 'mother_occupation') ?>
 
-    <?php // echo $form->field($model, 'mother_company_address') ?>
+    <?php // echo $form->field($model, 'mother_company') ?>
 
-    <?php // echo $form->field($model, 'mother_phonenum') ?>
+    <?php // echo $form->field($model, 'mother_contact') ?>
 
     <?php // echo $form->field($model, 'mother_birthdate') ?>
 
-    <?php // echo $form->field($model, 'sibling1_name') ?>
+    <?php // echo $form->field($model, 'guardian_name') ?>
 
-    <?php // echo $form->field($model, 'sibling1_age') ?>
+    <?php // echo $form->field($model, 'guardian_occupation') ?>
 
-    <?php // echo $form->field($model, 'sibling1_school') ?>
+    <?php // echo $form->field($model, 'guardian_company') ?>
 
-    <?php // echo $form->field($model, 'sibling1_grade_or_year') ?>
+    <?php // echo $form->field($model, 'guardian_contact') ?>
 
-    <?php // echo $form->field($model, 'sibling1_employed') ?>
+    <?php // echo $form->field($model, 'guardian_birthdate') ?>
 
-    <?php // echo $form->field($model, 'sibling1_married') ?>
+    <?php // echo $form->field($model, 'sibling') ?>
 
-    <?php // echo $form->field($model, 'sibling2_name') ?>
-
-    <?php // echo $form->field($model, 'sibling2_age') ?>
-
-    <?php // echo $form->field($model, 'sibling2_school') ?>
-
-    <?php // echo $form->field($model, 'sibling2_grade_or_year') ?>
-
-    <?php // echo $form->field($model, 'sibling2_employed') ?>
-
-    <?php // echo $form->field($model, 'sibling2_married') ?>
-
-    <?php // echo $form->field($model, 'income_per_year') ?>
-
-    <?php // echo $form->field($model, 'income_per_year_in_words') ?>
-
-    <?php // echo $form->field($model, 'date_created') ?>
+    <?php // echo $form->field($model, 'household_income') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

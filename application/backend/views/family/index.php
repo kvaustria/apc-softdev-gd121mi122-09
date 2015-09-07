@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\FamilySearch */
+/* @var $searchModel common\models\FamilySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Families';
@@ -25,32 +25,24 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-           // 'fam_background_id',
-            'name_of_father',
+            'id',
+            'father_name',
             'father_occupation',
-            //'father_company_address:ntext',
-            'father_phonenum',
+            'father_company',
+            'father_contact',
             // 'father_birthdate',
-            // 'name_of_mother',
+            // 'mother_name',
             // 'mother_occupation',
-            // 'mother_company_address:ntext',
-            // 'mother_phonenum',
+            // 'mother_company',
+            // 'mother_contact',
             // 'mother_birthdate',
-            // 'sibling1_name',
-            // 'sibling1_age',
-            // 'sibling1_school',
-            // 'sibling1_grade_or_year',
-            // 'sibling1_employed',
-            // 'sibling1_married',
-            // 'sibling2_name',
-            // 'sibling2_age',
-            // 'sibling2_school',
-            // 'sibling2_grade_or_year',
-            // 'sibling2_employed',
-            // 'sibling2_married',
-             'income_per_year',
-            // 'income_per_year_in_words',
-            // 'date_created',
+            // 'guardian_name',
+            // 'guardian_occupation',
+            // 'guardian_company',
+            // 'guardian_contact',
+            // 'guardian_birthdate',
+            // 'sibling',
+            // 'household_income',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
