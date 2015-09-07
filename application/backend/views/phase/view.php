@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Phase */
 
-$this->title = $model->phase_id;
+$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Phases', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,27 +15,33 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->phase_id], ['class' => 'btn btn-primary']) ?>
-        
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
     </p>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            //'phase_id',
-			'applicant_phase',
+            'id',
+            'applicant',
             'grade_screening',
-			'points',
-            'grd_screening_comment:ntext',
-            'scholarship_exam',
-            'exam_result_comment:ntext',
+            'screening_feedback:ntext',
+            'exam',
             'interview',
-            'home_visit_checklist:ntext',
-            'scholarship_status',
-            'approved_by',
+            'interview_feedback:ntext',
+            'checklist',
+            'points',
+            'status',
             'remarks:ntext',
+            'approved_by',
+            'school_attending',
             'date',
-            'school_attending_to:ntext',
         ],
     ]) ?>
 

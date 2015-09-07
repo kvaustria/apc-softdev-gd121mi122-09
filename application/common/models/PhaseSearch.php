@@ -18,8 +18,8 @@ class PhaseSearch extends Phase
     public function rules()
     {
         return [
-            [['phase_id', 'points', 'applicant_phase'], 'integer'],
-            [['grade_screening', 'grd_screening_comment', 'scholarship_exam', 'exam_result_comment', 'interview', 'home_visit_checklist', 'scholarship_status', 'approved_by', 'remarks', 'date', 'school_attending_to'], 'safe'],
+            [['id', 'applicant', 'checklist', 'points', 'school_attending'], 'integer'],
+            [['grade_screening', 'screening_feedback', 'exam', 'interview', 'interview_feedback', 'status', 'remarks', 'approved_by', 'date'], 'safe'],
         ];
     }
 
@@ -56,22 +56,22 @@ class PhaseSearch extends Phase
         }
 
         $query->andFilterWhere([
-            'phase_id' => $this->phase_id,
+            'id' => $this->id,
+            'applicant' => $this->applicant,
+            'checklist' => $this->checklist,
             'points' => $this->points,
+            'school_attending' => $this->school_attending,
             'date' => $this->date,
-            'applicant_phase' => $this->applicant_phase,
         ]);
 
         $query->andFilterWhere(['like', 'grade_screening', $this->grade_screening])
-            ->andFilterWhere(['like', 'grd_screening_comment', $this->grd_screening_comment])
-            ->andFilterWhere(['like', 'scholarship_exam', $this->scholarship_exam])
-            ->andFilterWhere(['like', 'exam_result_comment', $this->exam_result_comment])
+            ->andFilterWhere(['like', 'screening_feedback', $this->screening_feedback])
+            ->andFilterWhere(['like', 'exam', $this->exam])
             ->andFilterWhere(['like', 'interview', $this->interview])
-            ->andFilterWhere(['like', 'home_visit_checklist', $this->home_visit_checklist])
-            ->andFilterWhere(['like', 'scholarship_status', $this->scholarship_status])
-            ->andFilterWhere(['like', 'approved_by', $this->approved_by])
+            ->andFilterWhere(['like', 'interview_feedback', $this->interview_feedback])
+            ->andFilterWhere(['like', 'status', $this->status])
             ->andFilterWhere(['like', 'remarks', $this->remarks])
-            ->andFilterWhere(['like', 'school_attending_to', $this->school_attending_to]);
+            ->andFilterWhere(['like', 'approved_by', $this->approved_by]);
 
         return $dataProvider;
     }

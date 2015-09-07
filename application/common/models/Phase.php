@@ -7,22 +7,23 @@ use Yii;
 /**
  * This is the model class for table "phase".
  *
- * @property integer $phase_id
+ * @property integer $id
+ * @property integer $applicant
  * @property string $grade_screening
- * @property string $grd_screening_comment
- * @property string $scholarship_exam
- * @property string $exam_result_comment
+ * @property string $screening_feedback
+ * @property string $exam
  * @property string $interview
- * @property string $home_visit_checklist
+ * @property string $interview_feedback
+ * @property integer $checklist
  * @property integer $points
- * @property string $scholarship_status
- * @property string $approved_by
+ * @property string $status
  * @property string $remarks
+ * @property string $approved_by
+ * @property integer $school_attending
  * @property string $date
- * @property integer $applicant_phase
- * @property string $school_attending_to
  *
- * @property Applicants $applicantPhase
+ * @property Applicant $applicant0
+ * @property HouseholdChecklist $checklist0
  */
 class Phase extends \yii\db\ActiveRecord
 {
@@ -40,11 +41,10 @@ class Phase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['applicant_phase', 'date', 'points'], 'required'],
-            [['grade_screening', 'grd_screening_comment', 'scholarship_exam', 'exam_result_comment', 'interview', 'home_visit_checklist', 'scholarship_status', 'remarks', 'school_attending_to'], 'string'],
-            [['points', 'applicant_phase'], 'integer'],
-            [['school_attending_to','grade_screening', 'home_visit_checklist', 'scholarship_status', 'approved_by', 'remarks', 'date'], 'safe'],
-            [['approved_by'], 'string', 'max' => 100]
+            [['applicant', 'checklist', 'points', 'school_attending'], 'integer'],
+            [['grade_screening', 'screening_feedback', 'exam', 'interview', 'interview_feedback', 'status', 'remarks'], 'string'],
+            [['date'], 'safe'],
+            [['approved_by'], 'string', 'max' => 45]
         ];
     }
 
@@ -54,28 +54,36 @@ class Phase extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'phase_id' => 'Phase ID',
+            'id' => 'ID',
+            'applicant' => 'Applicant',
             'grade_screening' => 'Grade Screening',
-            'grd_screening_comment' => 'Grade Screening Comment',
-            'scholarship_exam' => 'Scholarship Exam',
-            'exam_result_comment' => 'Exam Result Comment',
+            'screening_feedback' => 'Screening Feedback',
+            'exam' => 'Exam',
             'interview' => 'Interview',
-            'home_visit_checklist' => 'Home Visit Check-list',
+            'interview_feedback' => 'Interview Feedback',
+            'checklist' => 'Checklist',
             'points' => 'Points',
-            'scholarship_status' => 'Scholarship Status',
-            'approved_by' => 'Approved By',
+            'status' => 'Status',
             'remarks' => 'Remarks',
+            'approved_by' => 'Approved By',
+            'school_attending' => 'School Attending',
             'date' => 'Date',
-            'applicant_phase' => 'Applicant',
-            'school_attending_to' => 'School Attending To',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getApplicantPhase()
+    public function getApplicant0()
     {
-        return $this->hasOne(Applicants::className(), ['applicant_id' => 'applicant_phase']);
+        return $this->hasOne(Applicant::className(), ['id' => 'applicant']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getChecklist0()
+    {
+        return $this->hasOne(HouseholdChecklist::className(), ['id' => 'checklist']);
     }
 }

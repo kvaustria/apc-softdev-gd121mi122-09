@@ -2,8 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use yii\helpers\ArrayHelper;
-use common\models\Applicants;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Phase */
@@ -13,35 +11,32 @@ use common\models\Applicants;
 <div class="phase-form">
 
     <?php $form = ActiveForm::begin(); ?>
-	
-	<?= $form->field($model, 'applicant_phase')->dropDownList(
-	ArrayHelper::map(Applicants::find()->all(), 'applicant_id','last_name'),
-	['prompt'=>'Select applicant']
-	) ?>
 
-    <?= $form->field($model, 'grade_screening')->dropDownList([ 'PASSED' => 'PASSED', 'FAILED' => 'FAILED', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'applicant')->textInput() ?>
 
-    <?= $form->field($model, 'grd_screening_comment')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'grade_screening')->dropDownList([ 'Passed' => 'Passed', 'Failed' => 'Failed', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'scholarship_exam')->dropDownList([ 'PASSED' => 'PASSED', 'FAILED' => 'FAILED', '' => '', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'screening_feedback')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'exam_result_comment')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'exam')->dropDownList([ 'Passed' => 'Passed', 'Failed' => 'Failed', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'interview')->dropDownList([ 'PASSED' => 'PASSED', 'FAILED' => 'FAILED', '' => '', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'interview')->dropDownList([ 'Passed' => 'Passed', 'Failed' => 'Failed', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'home_visit_checklist')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'interview_feedback')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'checklist')->textInput() ?>
 
     <?= $form->field($model, 'points')->textInput() ?>
 
-    <?= $form->field($model, 'scholarship_status')->dropDownList([ 'ACCEPTED' => 'ACCEPTED', 'DISQUALIFIED' => 'DISQUALIFIED', 'PENDING' => 'PENDING', '' => '', ], ['prompt' => '']) ?>
-
-    <?= $form->field($model, 'approved_by')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'status')->dropDownList([ 'APPROVED' => 'APPROVED', 'DISQUALIFIED' => 'DISQUALIFIED', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'remarks')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'date')->textInput() ?>
+    <?= $form->field($model, 'approved_by')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'school_attending_to')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'school_attending')->textInput() ?>
+
+    <?= $form->field($model, 'date')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
