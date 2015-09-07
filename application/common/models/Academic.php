@@ -53,14 +53,14 @@ class Academic extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'location' => 'Location',
-            'type' => 'Type',
-            'hs_name' => 'Hs Name',
+            'type' => 'High School Type',
+            'hs_name' => 'High School Graduating From',
             'section' => 'Section',
-            'hs_add' => 'Hs Add',
-            'principal' => 'Principal',
-            'tel_no' => 'Tel No',
-            'organization' => 'Organization',
-            'position' => 'Position',
+            'hs_add' => 'Complete High School Address',
+            'principal' => 'Name of Principal',
+            'tel_no' => 'High School phone number',
+            'organization' => 'Organizations',
+            'position' => 'Positions held',
         ];
     }
 

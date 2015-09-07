@@ -4,6 +4,8 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Applicant;
+use common\models\Personal;
+use common\models\Academic;
 use common\models\ApplicantSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -60,13 +62,17 @@ class ApplicantController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Applicant();
+        $model1 = new Applicant();
+		$model2 = new Personal();
+		$model3 = new Academic();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model1->load(Yii::$app->request->post()) && $model2->load(Yii::$app->request->post()) && $model3->load(Yii::$app->request->post()) && $model1->save() && $model2->save() && $model3->save()) {
+            return $this->redirect(['view', 'id' => $model1->id]);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                'model1' => $model1,
+				'model2' => $model2,
+				'model3' => $model3,
             ]);
         }
     }
