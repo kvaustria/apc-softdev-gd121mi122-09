@@ -3,8 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Academic;
-use backend\models\AcademicSearch;
+use common\models\Academic;
+use common\models\AcademicSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -63,7 +63,7 @@ class AcademicController extends Controller
         $model = new Academic();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->academic_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -82,7 +82,7 @@ class AcademicController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->academic_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

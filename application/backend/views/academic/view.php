@@ -4,9 +4,9 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Academic */
+/* @var $model common\models\Academic */
 
-$this->title = $model->academic_id;
+$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Academics', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->academic_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->academic_id], [
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,13 +28,16 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'Public_high_school_graduating_from',
-            'complete_school_address',
-            'principal_fullname',
-            'section_no',
-            'organization:ntext',
-            'position_held:ntext',
-            'academic_id',
+            'id',
+            'location',
+            'type',
+            'hs_name',
+            'section',
+            'hs_add',
+            'principal',
+            'tel_no',
+            'organization',
+            'position',
         ],
     ]) ?>
 

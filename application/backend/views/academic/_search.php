@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\AcademicSearch */
+/* @var $model common\models\AcademicSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -15,19 +15,25 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'Public_high_school_graduating_from') ?>
+    <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'complete_school_address') ?>
+    <?= $form->field($model, 'location') ?>
 
-    <?= $form->field($model, 'principal_fullname') ?>
+    <?= $form->field($model, 'type') ?>
 
-    <?= $form->field($model, 'section_no') ?>
+    <?= $form->field($model, 'hs_name') ?>
 
-    <?= $form->field($model, 'organization') ?>
+    <?= $form->field($model, 'section') ?>
 
-    <?php // echo $form->field($model, 'position_held') ?>
+    <?php // echo $form->field($model, 'hs_add') ?>
 
-    <?php // echo $form->field($model, 'academic_id') ?>
+    <?php // echo $form->field($model, 'principal') ?>
+
+    <?php // echo $form->field($model, 'tel_no') ?>
+
+    <?php // echo $form->field($model, 'organization') ?>
+
+    <?php // echo $form->field($model, 'position') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
