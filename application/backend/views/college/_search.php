@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\CollegeSearch */
+/* @var $model common\models\CollegeSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -15,13 +15,15 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'school_plan_to_enroll_in') ?>
+    <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'course_plan_to_take1') ?>
+    <?= $form->field($model, 'college_to_apply1') ?>
 
-    <?= $form->field($model, 'course_plan_to_take2') ?>
+    <?= $form->field($model, 'college_to_apply2') ?>
 
-    <?= $form->field($model, 'college_plan_id') ?>
+    <?= $form->field($model, 'course_to_take1') ?>
+
+    <?= $form->field($model, 'course_to_take2') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

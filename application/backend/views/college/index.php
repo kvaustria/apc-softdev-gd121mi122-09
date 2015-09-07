@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\CollegeSearch */
+/* @var $searchModel common\models\CollegeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Colleges';
@@ -25,10 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'school_plan_to_enroll_in:ntext',
-            'course_plan_to_take1',
-            'course_plan_to_take2',
-            //'college_plan_id',
+            'id',
+            'college_to_apply1',
+            'college_to_apply2',
+            'course_to_take1',
+            'course_to_take2',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

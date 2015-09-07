@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\College */
+/* @var $model common\models\College */
 
 $this->title = 'Create College';
 $this->params['breadcrumbs'][] = ['label' => 'Colleges', 'url' => ['index']];
